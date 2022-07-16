@@ -4,18 +4,14 @@ class Solution {
             return strs[0];
         }
         String result = "";
-        String temp = null;         
+        char temp = '\u0000';         
 
 		for (int i = 0; i < strs[0].length(); i++) {
-			temp = "" + strs[0].charAt(i);
+			temp = strs[0].charAt(i);
 			for (int j = 1; j < strs.length; j++) {
-				if (i<strs[j].length() && strs[j].charAt(i) == strs[0].charAt(i)) {
-					if (j == strs.length - 1) {
-						if (result == null) {
-							result = temp;
-						} else {
-							result = result + temp;
-						}
+				if (i<strs[j].length() && strs[j].charAt(i) == temp) {
+					if (j == strs.length - 1) {	
+						result = result + temp;
 					}
 				} else {
 					return result;
