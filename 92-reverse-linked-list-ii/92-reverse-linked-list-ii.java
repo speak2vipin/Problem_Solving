@@ -25,10 +25,8 @@ class Solution {
 			prev = temp;
 			rightI = prev;
 			temp = temp.next;
-          //  head = head.next;
 			count++;
-		}
-        
+		}  
 		while (temp != null && count < right) {
 			fake = prev;
 			prev = temp;
@@ -38,11 +36,9 @@ class Solution {
 		}
 		if(leftI!=null)
 			leftI.next = prev;
-		//if(temp!=null) {
-			rightI.next = temp;
-        //} else {
-            
-        //}
+		
+        rightI.next = temp;
+
         if(left==1) {
             head = prev;
         }
