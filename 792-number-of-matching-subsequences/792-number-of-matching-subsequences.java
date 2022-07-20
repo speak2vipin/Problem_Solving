@@ -1,7 +1,5 @@
 class Solution {
     public int numMatchingSubseq(String s, String[] words) {
-	        int lastIndex = -1;
-	        String sTemp = s;
 	        int count = 0;
             Set<String> sSet = new HashSet<String>();
             Set<String> iSet = new HashSet<String>();
@@ -11,26 +9,7 @@ class Solution {
                     continue;
                 } else if(iSet.contains(s1)) {
                     continue;
-                }
-	            /*for(int i=0; i<s1.length();i++) {
-	                int charIndex = sTemp.indexOf(s1.charAt(i));
-	                if(charIndex == -1) {
-                        iSet.add(s1);
-	                    break;
-	                } else {
-	                	sTemp = sTemp.substring(charIndex+1);
-	                }
-	                if(i==s1.length()-1) {
-                        sSet.add(s1);
-	                    count++;
-	                } else {
-                        iSet.add(s1);
-                    }
-	            }
-	            lastIndex = -1;
-	            sTemp = s;
-                */
-                else {
+                } else {
                     if(isSequenceExist(s,s1)) {
                         count++;
                         sSet.add(s1);
