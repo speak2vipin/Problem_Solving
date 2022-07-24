@@ -1,4 +1,6 @@
 class Solution {
+    // Bruteforce type
+    // Find the existence of String in Bank by replacing all the caracter with 'A', 'C','G','T'
     public int minMutation(String start, String end, String[] bank) {
         
 		char genes[] = { 'A', 'C', 'G', 'T' };
