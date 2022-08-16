@@ -1,6 +1,5 @@
 class Solution {
-    public int firstUniqChar(String s) {
-        
+    public int firstUniqChar(String s) {  
         int index[] = new int[26];
         char[] sArray = s.toCharArray();
         for(char temp : sArray) {
@@ -11,8 +10,6 @@ class Solution {
                 return s.indexOf(temp);
             }
         }
-        return -1;
-    
-        
+        return -1; 
     }
 }
