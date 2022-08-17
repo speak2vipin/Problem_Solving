@@ -2,9 +2,7 @@ class Solution {
     
     String code[] = { ".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",
     		".-.","...","-","..-","...-",".--","-..-","-.--","--.." };
-    
-	public int uniqueMorseRepresentations(String[] words) {
-        
+	public int uniqueMorseRepresentations(String[] words) {     
         Set<String>transformations = new HashSet<String>();
         for(String s : words) {
         	transformations.add(formCode(s));
