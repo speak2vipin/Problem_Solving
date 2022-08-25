@@ -4,12 +4,13 @@ class Solution {
         for(int i=0;i<magazine.length();i++) {
             charA[magazine.charAt(i)-'a']++;
         }
-        
+        char c;
         for(int i=0;i<ransomNote.length();i++) {
-            if(charA[ransomNote.charAt(i)-'a']==0) {
+            c = ransomNote.charAt(i);
+            if(charA[c-'a']==0) {
                 return false;
             } else {
-                charA[ransomNote.charAt(i)-'a']--;
+                charA[c-'a']--;
             }
         }
         return true;     
