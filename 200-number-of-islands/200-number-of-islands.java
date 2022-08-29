@@ -6,6 +6,8 @@ class Solution {
         for(int i=0;i<M;i++) {
             for(int j=0;j<N;j++) {
                 if(grid[i][j]=='1') {
+                    // Cover all the existing 1, comes in it's premise
+                    // change '1' to '0'
                     coverIsland(grid, i, j);
                     count++;
                 }
