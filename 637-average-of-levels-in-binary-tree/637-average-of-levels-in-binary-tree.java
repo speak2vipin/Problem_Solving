@@ -22,11 +22,10 @@ class Solution {
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		q.add(root);
 		double sum = 0.0;
-		double average= 0.0;
-        int i;
+	
 		while (!q.isEmpty()) {
 			int count = q.size();
-			for (i = 0; i < count; i++) {
+			for (int i = 0; i < count; i++) {
 				TreeNode temp = q.poll();
 				if (temp.left != null) {
 					q.add(temp.left);
@@ -37,9 +36,9 @@ class Solution {
 				sum += temp.val;
 				
 			}
-			average = sum / i;
+			//average = sum / count;
+			list.add(sum / count);
             sum=0.0;
-			list.add(average);
 		}
 		return list;
     }
