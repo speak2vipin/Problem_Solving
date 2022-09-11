@@ -7,8 +7,7 @@ class Solution {
 			char c = s.charAt(i - 1);
 			int tempCount = 0;
 
-			while (c > 47 && c < 58) {
-				
+			while (c > 47 && c < 58) {	
 				tempCount += (c - '0') * Math.pow(10, count);
 				count++;
 				if(i - 1 - count>-1)
@@ -16,12 +15,16 @@ class Solution {
 				else
 					break;
 			}
-			int k = i + mod(s.substring(i + 1));
-			s = s.substring(0, i - count) + recurString(s.substring(i + 1, k), tempCount, "") + s.substring(k+1);
+			int k = i + closedBracketIndex(s.substring(i + 1));
+            // Form String
+			s = s.substring(0, i - count) + 
+                recurString(s.substring(i + 1, k), tempCount, "") + 
+                s.substring(k+1);
 		}
 		return s;
 	}
-
+    
+    // Give String appended multiple time
 	  String recurString(String s, int A, String temp) {
 		if (A == 1) {
 			return temp + s;
@@ -29,7 +32,8 @@ class Solution {
 		return recurString(s, A - 1, temp + s);
 	}
 
-	 int mod(String s) {
+    // Give u the index of ]
+	 int closedBracketIndex(String s) {
 		int i = 0;
 		while (s.charAt(i) != ']') {
 			i++;
