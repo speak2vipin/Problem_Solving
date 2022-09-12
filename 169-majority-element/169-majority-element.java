@@ -1,5 +1,6 @@
 class Solution {
     public int majorityElement(int[] nums) {
+        // More algorithms
         int N = nums.length;
         int ans = nums[0];
         int count = 1;
@@ -13,7 +14,6 @@ class Solution {
                 count--;
             }
         }
-        return ans;
-        
+        return ans;  
     }
 }
