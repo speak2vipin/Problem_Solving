@@ -1,6 +1,6 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        // More algorithms
+        // More's algorithms
         int N = nums.length;
         int ans = nums[0];
         int count = 1;
