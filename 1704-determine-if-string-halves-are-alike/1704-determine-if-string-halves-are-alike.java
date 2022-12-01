@@ -6,21 +6,21 @@ class Solution {
          List<Character> vowels = 
              List.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
         
-        int firstHalf = 0;
+        int count = 0;
         int secondHalf = 0;
         int start = 0;
         while(mid<N) {
             if(vowels.contains(s.charAt(start))) {
-               firstHalf++; 
+               count++; 
             }
             if(vowels.contains(s.charAt(mid))) {
-               secondHalf++; 
+               count--; 
             }
             start++;
             mid++;  
         }
         
-        return firstHalf==secondHalf;
+        return count==0;
         
     }
 }
