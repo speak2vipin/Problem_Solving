@@ -3,24 +3,24 @@ class Solution {
         int N = s.length();
         int mid = N/2;
         
-        Set<Character> vowels = 
-             Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
+         List<Character> vowels = 
+             List.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
         
-        int count = 0;
+        int firstHalf = 0;
         int secondHalf = 0;
         int start = 0;
         while(mid<N) {
             if(vowels.contains(s.charAt(start))) {
-               count++; 
+               firstHalf++; 
             }
             if(vowels.contains(s.charAt(mid))) {
-               count--; 
+               secondHalf++; 
             }
             start++;
             mid++;  
         }
         
-        return count==0;
+        return firstHalf==secondHalf;
         
     }
 }
