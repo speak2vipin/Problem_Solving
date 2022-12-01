@@ -3,12 +3,8 @@ class Solution {
         int N = s.length();
         int mid = N/2;
         
-        List<Character> vowels = new ArrayList<Character>();
-        vowels.add('a');vowels.add('A');
-        vowels.add('i');vowels.add('I');
-        vowels.add('o');vowels.add('O');
-        vowels.add('u');vowels.add('U');
-        vowels.add('e');vowels.add('E');
+         List<Character> vowels = 
+             List.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
         
         int firstHalf = 0;
         int secondHalf = 0;
