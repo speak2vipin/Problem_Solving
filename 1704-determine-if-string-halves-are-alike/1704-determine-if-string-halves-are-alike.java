@@ -3,8 +3,8 @@ class Solution {
         int N = s.length();
         int mid = N/2;
         
-         List<Character> vowels = 
-             List.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
+        Set<Character> vowels = 
+             Set.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
         
         int count = 0;
         int secondHalf = 0;
