@@ -1,42 +1,43 @@
 class Solution {
     public String frequencySort(String s) {
-        // PriorityQueue for sorting elements on decresing order based on frequency
-        // b.val - a.val => store pair objects based on decresong order of frequency value 
-        PriorityQueue<Pair> pq = new PriorityQueue<>((a,b) -> b.val-a.val);
-        // HashMap to store elements and their current frequency
-        HashMap<Character,Integer> hm = new HashMap<>();
-        char []c = s.toCharArray();
-        for(int i=0;i<c.length;i++) {
-            int count = hm.getOrDefault(c[i],0);
-            //add element and current frequency in hashmap
-            hm.put(c[i],count+1);
-        }
-        //add whole hashmap to priorityQueue
-        for(Map.Entry<Character,Integer> entry: hm.entrySet()) {
-            Pair pair = new Pair(entry.getKey(),entry.getValue());
-            pq.add(pair);
-        }
-        StringBuilder sb = new StringBuilder("");
-        //extract value from priorityQueue and add it into answer string
-        while(!pq.isEmpty()) {
-            Pair pair = pq.remove();
-            int count = pair.val;
-            char ch = pair.c;
-            // add character into answer string as many time as frequency (it appears in main string)
-            while(count--> 0) {
-                sb.append(ch);
-            }
-        }
-        return sb.toString();
-    }
-    
-    // create class to store character and their respective frequency
-    public class Pair {
-        int val;
-        char c;
-        public Pair(char c,int val) {
-            this.c = c;
-            this.val = val;
-        }
-    }
+		int N = s.length();
+		char temp = '\u0000';
+		Map<Character, Integer>map = new HashMap<Character, Integer>();
+		for(int i=0; i<N; i++) {
+			temp = s.charAt(i);
+			map.put(temp, map.getOrDefault(temp, 0)+1);
+		}
+		ValueComparator vc = new ValueComparator(map);
+		TreeMap<Character, Integer> treeMap = new TreeMap<Character, Integer> (vc);
+		treeMap.putAll(map);
+		String ans = "";
+		for(Character c : treeMap.keySet()) {
+			int val = map.get((Character)c);
+			while(val-- > 0) {
+				ans = ans+c;
+			}
+		}
+		
+		return ans;
+	}
+	
+	static class ValueComparator implements Comparator<Character> {
+		Map<Character, Integer> map;
+		
+		@Override
+		public int compare(Character s1, Character s2) {
+			// TODO Auto-generated method stub
+			if(map.get(s1) >= map.get(s2)) {
+				return -1;
+			} else {
+				return 1;
+			}
+		}
+
+		public ValueComparator(Map<Character, Integer> map) {
+			super();
+			this.map = map;
+		}
+		
+	}
 }
