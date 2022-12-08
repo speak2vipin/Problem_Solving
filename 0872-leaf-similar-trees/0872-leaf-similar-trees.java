@@ -22,7 +22,7 @@ class Solution {
         }
         leafSequence(root1, l1);
         leafSequence(root2, l2);
-        if(l1.size()!=l2.size()) {
+        /*if(l1.size()!=l2.size()) {
             return false;
         }
         int N = l1.size();
@@ -31,7 +31,8 @@ class Solution {
                 return false;
             }
         }
-        return true;
+        return true;*/
+        return l1.equals(l2);
     }
     
     void leafSequence (TreeNode t1, List<Integer> temp) {
@@ -42,7 +43,6 @@ class Solution {
             temp.add(t1.val);
             return;
         }
-        
         leafSequence(t1.left, temp);
         leafSequence(t1.right, temp);
     }
