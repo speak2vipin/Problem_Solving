@@ -22,16 +22,6 @@ class Solution {
         }
         leafSequence(root1, l1);
         leafSequence(root2, l2);
-        /*if(l1.size()!=l2.size()) {
-            return false;
-        }
-        int N = l1.size();
-        for(int i=0; i<N; i++) {
-            if(l1.get(i)!=l2.get(i))  {
-                return false;
-            }
-        }
-        return true;*/
         return l1.equals(l2);
     }
     
