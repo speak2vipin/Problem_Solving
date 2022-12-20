@@ -2,18 +2,16 @@ class Solution {
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
         boolean [] visit = new boolean[1000];
        
-        Set<Integer> set = new HashSet<Integer>();
         List<Integer> l = rooms.get(0);
         Queue<Integer> qe = new LinkedList<Integer>();
         for(Integer i : l) {
             qe.add(i);
         }
         visit[0] = true;
-        set.add(0);
         int max = maxRooms(rooms);
         while(!qe.isEmpty()) {
             int top = qe.poll();
-            if(!set.contains(top)){
+            if(!visit[top]){
                 List<Integer> temp = rooms.get(top);
                 for(Integer num : temp) {
                     if(!qe.contains(num)) {
@@ -22,7 +20,6 @@ class Solution {
                 }
             }
             visit[top] = true;
-            set.add(top);
         }
         for(int i=0; i<=max; i++) {
             if(!visit[i]) {
