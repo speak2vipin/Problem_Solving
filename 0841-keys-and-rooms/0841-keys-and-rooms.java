@@ -16,12 +16,13 @@ class Solution {
             if(!set.contains(top)){
                 List<Integer> temp = rooms.get(top);
                 for(Integer num : temp) {
-                    qe.add(num);
+                    if(!qe.contains(num)) {
+                        qe.add(num);
+                    }
                 }
             }
             visit[top] = true;
             set.add(top);
-           // max = Math.max(max, top);
         }
         for(int i=0; i<=max; i++) {
             if(!visit[i]) {
