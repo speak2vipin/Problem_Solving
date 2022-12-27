@@ -12,6 +12,8 @@ class Solution {
             if(additionalRocks>=remain[i]) {
                 additionalRocks = additionalRocks - remain[i];
                 count++;
+            } else {
+                break;
             }
         }
         return count;
