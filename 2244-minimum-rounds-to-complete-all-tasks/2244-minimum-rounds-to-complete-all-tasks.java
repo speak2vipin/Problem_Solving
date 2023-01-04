@@ -14,9 +14,9 @@ class Solution {
             }
             if(val%3==0) {
             		step += val/3;
-            } else if(val%3==1) {
+            } else if(val%3==1) { // 10 -> 3*3 - 3*1 + 2*2 
             		step += (val/3) - 1 + 2;
-            } else {
+            } else { // 11 -> 3*3 + 2*1
             	step += (val/3)+1;            	
             }
         }
