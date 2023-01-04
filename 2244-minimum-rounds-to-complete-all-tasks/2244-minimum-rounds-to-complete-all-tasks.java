@@ -1,6 +1,5 @@
 class Solution {
-    public int minimumRounds(int[] tasks) {
-        
+    public int minimumRounds(int[] tasks) {  
         Map<Integer,Integer> map = new TreeMap<Integer,Integer>();
         int N = tasks.length;
         for(int i=0; i<N; i++) {
@@ -22,6 +21,5 @@ class Solution {
             }
         }
         return step;   
-        
     }
 }
