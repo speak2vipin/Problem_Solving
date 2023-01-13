@@ -32,8 +32,8 @@ class Solution {
         if(root.right!=null) {
             right = 1+helper(root.right);
         }
-        int currentmaxLength = Math.max(left, right);
+        
         diameter = Math.max(diameter,left+right);
-        return currentmaxLength;
+        return Math.max(left, right);
     }
 }
