@@ -1,21 +1,19 @@
 class Solution {
     public int minFlipsMonoIncr(String s) {
         int L = s.length();
-        int gadbad=0;
-        for(int i=0; i<L; i++) {
-            if(s.charAt(i)=='0') {
-                gadbad++;
-            }
+        int count=0;
+        int dp[] = new int[L];  
+        if(s.charAt(0)=='1') {
+            count++;
         }
-        int ans = gadbad;
-        for(int i=0; i<L; i++) {
-            if(s.charAt(i)=='0') {    
-                gadbad--;
+        for(int i=1; i<L; i++) {
+            if(s.charAt(i)=='1') {
+                count++;
+                dp[i] = dp[i-1];
             } else {
-                gadbad++;
+                dp[i] = Math.min(count, dp[i-1]+1);
             }
-            ans = Math.min(ans, gadbad);
         }
-        return ans;
+        return dp[L-1];
     }
 }
