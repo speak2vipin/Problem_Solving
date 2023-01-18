@@ -30,14 +30,12 @@ class Solution {
             maxSum = Math.max(maxSum, nums[i]);
             // Prefix Sum for calculating special sum i.e. rotated array sum
             prefixSum += nums[i];
-            
+            // Special sum will be having role when array will have any negative number
             if(i<N-1) {
                 specialSum = Math.max(specialSum, prefixSum + rightMax[i+1]);
             }
             
         }
-        
-        
         
         return Math.max(maxSum, specialSum);
     }
