@@ -24,7 +24,7 @@ class Solution {
                 curMax = 0;
             } 
             max = Math.max(max, nums[i]);
-            maxSum = Math.max(maxSum, max);
+            maxSum = Math.max(maxSum, nums[i]);
             prefixSum += nums[i];
             if(i<N-2) {
                 specialSum = Math.max(specialSum, prefixSum + rightMax[i+1]);
