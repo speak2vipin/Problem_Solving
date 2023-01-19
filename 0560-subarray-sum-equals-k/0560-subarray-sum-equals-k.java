@@ -11,6 +11,9 @@ class Solution {
             if(map.containsKey(prefixSum-k)) {
                 count += map.get(prefixSum-k);
             }
+            // If prefixSum is 0 then if we are getting prefixSum - k=0, 
+            // prefixSum = k so one subarray will start from i==0 and 
+            // one will start from next the element where prefixSum was 0. 
             map.put(prefixSum, map.getOrDefault(prefixSum, 0) + 1);
         }
         return count;
