@@ -9,6 +9,7 @@ class Solution {
     
     void helper(int[]nums, int index, List<Integer> subset) {
         if(N==index) {
+            // At least two elements given in question
             if(subset.size()>=2) {
                 List<Integer> l = new ArrayList<Integer>();
                 l.addAll(subset);
@@ -17,12 +18,15 @@ class Solution {
             return;
         }
         int size = subset.size();
+        // If increasing then only proceed
         if(size==0 || nums[index]>=subset.get(size-1)) {
              subset.add(nums[index]);
              helper(nums, index+1, subset);
-             size = subset.size();       
+             size = subset.size(); 
+            // Once done with that indexed element then take next
              subset.remove(size-1);
         } 
+        // Process next index element
         helper(nums, index+1, subset);
     }
 }
