@@ -1,5 +1,6 @@
 class Solution {
     int N = 0;
+    // This Set will mainatain unique elements within this list
     Set<List<Integer>> subsets = new HashSet<List<Integer>>();
     public List<List<Integer>> findSubsequences(int[] nums) {
         N = nums.length;
