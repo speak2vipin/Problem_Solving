@@ -1,6 +1,9 @@
 class Solution {
     int ans = Integer.MAX_VALUE;
     Queue<int[]>qe = new LinkedList<int[]>();
+    // Very good question basically on DFS 
+    // Here it can have loop
+    // Use of Dist array just to keep track of min distance from source node to // every node
     public int findCheapestPrice(int n, int[][] flights, int src, int dest, int k) {
         int dist[] = new int[n];
         Arrays.fill(dist, Integer.MAX_VALUE);
