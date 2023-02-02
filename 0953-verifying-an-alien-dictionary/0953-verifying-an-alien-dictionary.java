@@ -13,7 +13,6 @@ class Solution {
             }
         }
         return true;
-        
     }
     
     boolean compare(String s1, String s2) {
@@ -25,19 +24,11 @@ class Solution {
         for(int i=0; i<l+1; i++) {
             c1 = s1.charAt(i);
             c2 = s2.charAt(i);
-            if(c1==c2) {
-               continue;
-            } 
-            if(dic.get(c1)>dic.get(c2)) {
-                return false;
-            }
-            if(dic.get(c1)<dic.get(c2)) {
-                return true;
+            if(c1!=c2) {
+                return dic.get(c1)<dic.get(c2);
             }
         }
-        if(l1>l2) {
-            return false;
-        }
-        return true;
+       
+        return l2>=l1;
     }
 }
