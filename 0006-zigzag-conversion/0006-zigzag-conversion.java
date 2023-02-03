@@ -4,7 +4,7 @@ class Solution {
         if(l<numRows || numRows==1) {
             return s;
         }
-        String output = "";
+        StringBuilder output = new StringBuilder();
         ArrayList<ArrayList<Character>> A = new ArrayList<ArrayList<Character>>();
         int i=0;
         for(i=0; i<numRows; i++) {
@@ -33,9 +33,9 @@ class Solution {
         }
         for(ArrayList<Character> list : A) {
             for(Character c : list) {
-                output += c;
+                output.append(c);
             }
         }
-        return output;
+        return output.toString();
     }
 }
