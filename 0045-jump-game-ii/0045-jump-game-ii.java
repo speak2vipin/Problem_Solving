@@ -1,8 +1,6 @@
 class Solution {
     public int jump(int[] nums) {
-       
-		
-		
+ 
         PriorityQueue<Temp>pq = new PriorityQueue<Temp>(new Comparator<Temp>() {
 			@Override
 			public int compare(Temp o1, Temp o2) {
@@ -27,8 +25,6 @@ class Solution {
         }
         return jump; 
     
-    
-        
     }
 }
 class Temp {
