@@ -1,6 +1,5 @@
 class Solution {
-    public List<Integer> addToArrayForm(int[] num, int k) {
-        
+    public List<Integer> addToArrayForm(int[] num, int k) {        
 		int len1 = num.length - 1;
 		String ks = k + "";
 		int len2 = ks.length() - 1;
@@ -22,9 +21,6 @@ class Solution {
 			ans.add(carry);
 		}
 		Collections.reverse(ans);
-		return ans;
-
-	
-        
+		return ans;  
     }
 }
