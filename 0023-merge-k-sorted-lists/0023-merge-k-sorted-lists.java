@@ -19,8 +19,9 @@ class Solution {
             }
         });
         for(int i=0; i<k; i++) {
-            if(lists[i]!=null)
+            if(lists[i]!=null) {
                 pq.offer(lists[i]);
+            }
         }
         ListNode head = null;
         ListNode curr = null;
