@@ -26,11 +26,10 @@ class Solution {
         TreeNode temp = null;
         
         temp = node.left;
-        
         node.left = node.right;
         node.right = temp;
+        
         invert(node.left);
         invert(node.right);
-    }
-    
+    }   
 }
