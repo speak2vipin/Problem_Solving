@@ -13,9 +13,9 @@ class Solution {
                 st = mid+1;
             }
         }
-        if(nums[mid]<target) {
-            mid = mid+1;
-        }
-        return mid;
+       // if(nums[mid]<target) {
+         //   mid = mid+1;
+        //}
+        return st;
     }
 }
