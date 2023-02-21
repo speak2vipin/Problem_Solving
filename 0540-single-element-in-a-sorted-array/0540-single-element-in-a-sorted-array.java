@@ -1,10 +1,6 @@
 class Solution {
     public int singleNonDuplicate(int[] nums) {
-        int ans = nums[0];
-        for(int i=1;i<nums.length; i++) {
-            ans = ans^nums[i];
-        }
-        return ans;
+        return binarySearch(nums);
     }
     
     int binarySearch(int[]nums) {
@@ -13,16 +9,16 @@ class Solution {
         int ans = -1;
         while(st<en) {
             int mid = en - (en-st)/2;
-            if(nums[mid]==nums[mid-1]) {
-                en = mid-2;
-            } else if(nums[mid]==nums[mid+1]) {
+            if(mid%2 == 1) {
+                mid--;
+            } 
+            if(nums[mid]==nums[mid+1]) {
                 st = mid+2;
             } else {
-                ans = nums[mid];
-                break;
+                en = mid;
             }
         }
-        return ans;
+        return nums[st];
         
     }
 }
