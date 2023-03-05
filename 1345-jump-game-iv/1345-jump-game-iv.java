@@ -1,6 +1,6 @@
 class Solution {
     public int minJumps(int[] arr) {
-        
+        // MUtiple Directional BFS problem
         Map<Integer, ArrayList<Integer>>valueToIndex = 
             new HashMap<Integer, ArrayList<Integer>>();
         int N = arr.length;
