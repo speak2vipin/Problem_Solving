@@ -1,7 +1,8 @@
 class Solution {
     public int minJumps(int[] arr) {
         
-        Map<Integer, ArrayList<Integer>>valueToIndex = new HashMap<Integer, ArrayList<Integer>>();
+        Map<Integer, ArrayList<Integer>>valueToIndex = 
+            new HashMap<Integer, ArrayList<Integer>>();
         int N = arr.length;
         if(N<=1) {
             return 0;
@@ -35,6 +36,7 @@ class Solution {
                         visit[sameNumber] = true;
                     }
                 }
+                // Take care of below line or else you will get TLE
                 valueToIndex.remove(arr[index]);
             }
             steps++;
