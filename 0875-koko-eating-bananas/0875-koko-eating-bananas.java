@@ -5,11 +5,10 @@ class Solution {
 		for (int pile : piles) {
 			high = Math.max(high, pile);
 		}
-		long ans = 0;
+		
 		while (low <= high) {
 			long mid = low + (high - low) / 2;
 			if (isPossible(piles, mid, h)) {
-				ans = mid;
 				low = mid + 1;
 			} else {
 				high = mid - 1;
