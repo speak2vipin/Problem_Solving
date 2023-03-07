@@ -1,13 +1,8 @@
 class Solution {
-    public int maximumCandies(int[] candies, long k) {
-        
-        long high = candies[0];
+    public int maximumCandies(int[] candies, long k) {        
+        long high = 10_000_000;
         long low = 0;
-        for(int candy : candies) {
-            high = Math.max(candy, high);
-        }
-        
-        high = 10_000_000;
+
         long mid = 0;
         
         while(low<high) {
