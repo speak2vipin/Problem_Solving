@@ -4,10 +4,10 @@ class Solution {
         long low = 1;
         long high = 10000000;
         for(int candy : candies) {
-            high+=candy;
+            //high+=candy;
         }
         if(high<k) {
-            return 0;
+            //return 0;
         }
 
         long mid = 0;
