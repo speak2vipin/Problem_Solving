@@ -2,7 +2,7 @@ class Solution {
     public int maximumCandies(int[] candies, long k) {        
        // long high = 10000000;
         long low = 1;
-        long high = 0;
+        long high = 10000000;
         for(int candy : candies) {
             high+=candy;
         }
