@@ -1,3 +1,2 @@
-# Leetcode
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
-Thank you!
+
+Collection of all the Data Structure questions.
