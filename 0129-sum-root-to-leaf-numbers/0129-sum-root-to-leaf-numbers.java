@@ -15,8 +15,11 @@
  */
 class Solution {
     int sum = 0;
+    
     public int sumNumbers(TreeNode root) {
-        helper(root, ""+root.val);
+        //helper(root, ""+root.val);
+        
+        anotherHelper(root, root.val);
         return sum;
     }
     void helper(TreeNode root, String s) {
@@ -28,5 +31,17 @@ class Solution {
         	helper(root.left, s+root.left.val);
         if(root.right!=null)
         	helper(root.right, s+root.right.val);     
+    }
+    
+    void anotherHelper(TreeNode root, int temp) {
+        if(root.left==null && root.right==null) {
+        	sum += temp;
+            return;
+        }
+        temp = temp*10;
+        if(root.left!=null)
+        	anotherHelper(root.left, temp+root.left.val);
+        if(root.right!=null)
+        	anotherHelper(root.right, temp+root.right.val);     
     }
 }
