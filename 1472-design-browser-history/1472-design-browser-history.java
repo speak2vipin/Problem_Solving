@@ -1,6 +1,7 @@
 class BrowserHistory {
     Stack<String> forward;
     Stack<String> backward;
+    
     public BrowserHistory(String homepage) {
         forward = new Stack<>();
         forward.push(homepage);
@@ -11,7 +12,6 @@ class BrowserHistory {
         if(!backward.isEmpty()) {
             backward.clear();
         }
-        //backward.push()
         forward.push(url);
     }
     
