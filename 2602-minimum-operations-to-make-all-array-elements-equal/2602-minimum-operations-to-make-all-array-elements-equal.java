@@ -29,7 +29,7 @@ class Solution {
 			int index = minLargestNumIndex(nums, q);
 			if(index==0) {
 				count = prefix[n-1] - 1l*q*n;
-			} else if(index==n) {
+			} else if(index==n-1) {
 				count = 1l*q*n - prefix[n-1];
 			} else {
 				count = (1l*q*index) - prefix[index-1] + prefix[n-1] - prefix[index-1] - (1l * (n-index)*q);
