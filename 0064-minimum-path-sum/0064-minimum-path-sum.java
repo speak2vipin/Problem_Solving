@@ -36,7 +36,7 @@ class Solution {
 	        return (x<N && x>-1) && (y<M && y>-1);    
 	    }*/
     
-    public int minPathSum(int[][] grid) {
+   /* public int minPathSum(int[][] grid) {
 	        int N = grid.length;
 	        int M = grid[0].length;
 	        int dp[][] = new int[N][M];
@@ -54,5 +54,24 @@ class Solution {
                 }
             }
         return dp[N-1][M-1];
+    }*/
+    
+    public int minPathSum(int[][] grid) {
+	        int N = grid.length;
+	        int M = grid[0].length;
+            for(int i=0; i<N; i++) {
+                for(int j=0; j<M; j++) {
+                    if(i==0 && j==0) {
+                        grid[i][j] = grid[i][j];
+                    } else if(i==0) {
+                        grid[i][j] = grid[i][j]+grid[i][j-1];
+                    } else if(j==0) {
+                        grid[i][j] = grid[i][j]+grid[i-1][j];   
+                    } else {
+                        grid[i][j] = grid[i][j] + Math.min(grid[i][j-1], grid[i-1][j]);
+                    }
+                }
+            }
+        return grid[N-1][M-1];
     }
 }
