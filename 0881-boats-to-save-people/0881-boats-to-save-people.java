@@ -1,7 +1,6 @@
 class Solution {
     public int numRescueBoats(int[] people, int limit) {
-        
-        
+        /*
 		int temp[] = new int[limit + 1];
 		for (int weight : people) {
 			temp[weight] = temp[weight] + 1;
@@ -31,5 +30,19 @@ class Solution {
 			}
 		}
 		return count;
+    }*/
+        
+        Arrays.sort(people);
+        int i=0, j= people.length-1;
+        int ans = 0;
+        
+        while(i<=j) {
+            ans++;
+            if(people[i]+people[j]<=limit) {
+                i++;
+            }
+            j--;
+        }
+        return ans;
     }
 }
