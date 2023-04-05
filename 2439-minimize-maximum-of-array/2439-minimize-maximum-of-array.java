@@ -35,7 +35,19 @@ class Solution {
 	        // Iterate over nums, update prefix sum and answer.
 	        for (int i = 0; i < nums.length; ++i) {
 	            prefixSum += nums[i];
+                // This problem is like trapping rain water i.e. Finding average of water vessels to stor it
+                // flow would go from right to left so it would avarage of prefix sum
+                // Take care of Math.ceil as it return double so make prefixSum as double
+                // or else it will return u an int. (int/int) will be int and 
+                // then Math.ceil won't be useful
 	            answer = Math.max(answer, Math.ceil(prefixSum/(i + 1)));
+                // Another trick of finding ceil is
+                //long answer = 0, prefixSum = 0;
+                //prefixSum += nums[i];
+                //answer = MAth.max(answer, Math.ceil((prefixSum + i)/(i+1)));
+                // Prefix/(i+1) + i/ (i+1) would be ceil number.
+                    
+                
 	        }
 
 	        return (int)answer;
