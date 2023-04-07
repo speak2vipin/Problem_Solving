@@ -1,11 +1,14 @@
 class Foo {
-
+    Semaphore firstSemaphore = null;
+    Semaphore secondSemaphore = null;
+    Semaphore thirdSemaphore = null;
+    
     public Foo() {
-        
+        firstSemaphore = new Semaphore(1);
+        secondSemaphore = new Semaphore(0);
+        thirdSemaphore = new Semaphore(0);
     }
-    Semaphore firstSemaphore = new Semaphore(1);
-    Semaphore secondSemaphore = new Semaphore(0);
-    Semaphore thirdSemaphore = new Semaphore(0);
+   
 
     public void first(Runnable printFirst) throws InterruptedException {
         
