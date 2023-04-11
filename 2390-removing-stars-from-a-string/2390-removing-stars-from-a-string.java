@@ -8,7 +8,7 @@ class Solution {
             char temp = s.charAt(i);
             if(temp=='*' && !st.isEmpty()) {
                 st.pop();
-            } else {
+            } else if(temp != '*') {
                 st.push(temp);
             }
             i++;
@@ -18,7 +18,5 @@ class Solution {
             sb.append(c);
         }
         return sb.toString(); 
-    
-        
     }
 }
