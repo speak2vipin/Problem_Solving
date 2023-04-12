@@ -1,6 +1,11 @@
 class Solution {
+    // Logic
+    // Split string by "/"
+    // Take care of "..", ".", "" Strings
+    // If !st.isEmpty() && temp.equals("..") --> st.pop()
+    // If !temp.equals("" || "." || "..") --> st.push()
     public String simplifyPath(String path) {
-       
+      
         StringBuilder simplifyPath = new StringBuilder("");
         
         String[]splits = path.split("/");
@@ -20,9 +25,7 @@ class Solution {
         }
         
         for(int i=0; i<st.size(); i++) {
-        	
         	simplifyPath.append("/");
-        
         	simplifyPath.append(st.get(i));
         }
         return simplifyPath.toString();
