@@ -8,7 +8,6 @@ class Solution {
 	}
 
 	int evaluate(int dp[][], int i, int j, String s) {
-		//System.out.println(i + " " + j + " " + dp[i][j] +" " + s.substring(i,j+1));
 		if (dp[i][j] != 0) {
 			return dp[i][j];
 		}
@@ -23,7 +22,6 @@ class Solution {
 		} else {
 			dp[i][j] = Math.max(evaluate(dp, i + 1, j, s), evaluate(dp, i, j - 1, s));
 		}
-		
 		return dp[i][j];
 	}
 }
