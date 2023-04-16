@@ -6,7 +6,7 @@ class Solution {
 
 	public int numWays(String[] words, String target) {
 		//int mod = 1000000007;
-		maxLength = words[0].length();
+		//maxLength = words[0].length();
 		count = new long[1000][26];
 		for(String word : words) {
 			maxLength = Math.max(maxLength, word.length());
