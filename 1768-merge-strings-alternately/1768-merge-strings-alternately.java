@@ -1,4 +1,9 @@
 class Solution {
+    // Logic:
+    // Two counter, iterate till one counter turned to zero
+    // Append character alternatively
+    // Append non negative counter string to final result
+    
     public String mergeAlternately(String word1, String word2) {
         
         int l1 = word1.length();
@@ -24,7 +29,5 @@ class Solution {
             sb.append(word2.substring(j));
         }
         return sb.toString(); 
-    
-        
     }
 }
