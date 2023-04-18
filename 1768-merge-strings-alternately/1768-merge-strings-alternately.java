@@ -1,12 +1,12 @@
 class Solution {
     // Logic:
-    // Two counter, iterate till one counter turned to zero
+    // Two counters, iterate till one counter turned to zero
     // Append character alternatively
-    // Append non negative counter string to final result
+    // Append non negative counters characters to final result
     
     public String mergeAlternately(String word1, String word2) {
-        
-        int l1 = word1.length();
+         
+		int l1 = word1.length();
         int l2 = word2.length();
         StringBuilder sb = new StringBuilder("");
         int i = 0;
@@ -15,19 +15,19 @@ class Solution {
         
         while (l1>i && l2>j) {
         	if(flag) {
-                sb.append(word1.charAt(i));
-                i++;
+                sb.append(word1.charAt(i++));
             } else {
-                sb.append(word2.charAt(j));
-                j++;
+                sb.append(word2.charAt(j++));
             }
         	flag = !flag;			
 		}
-        if(l1>i) {
-            sb.append(word1.substring(i));
-        } else {
-            sb.append(word2.substring(j));
+        while(l1>i) {
+            sb.append(word1.charAt(i++));
+        } 
+        while(l2>j) {
+            sb.append(word2.charAt(j++));
         }
         return sb.toString(); 
+    
     }
 }
