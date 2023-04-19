@@ -22,11 +22,12 @@ class Solution {
         } 
         maxLen(root, true, 0);
         maxLen(root, false, 0);
+        
         return pathLength;
     }
                
-    void maxLen(TreeNode root, boolean left, int step) {
-       /*  
+    void maxLen(TreeNode root, boolean goLeft, int step) {
+        
         if(root==null) {
             return ;
         }
@@ -38,19 +39,6 @@ class Solution {
         } else {
         	maxLen(root.right, !goLeft, step+1);  
             maxLen(root.left, goLeft, 1);  
-        }
-        */
-        if(root==null) {
-            return ;
-        }
-        pathLength = Math.max(pathLength, step);
-        
-        if(left) {
-            maxLen(root.right, !left, step+1);  
-            maxLen(root.left, left, 1); 
-        } else {
-        	maxLen(root.left, !left, step+1);  
-            maxLen(root.right, left, 1);  
         }
     }
 }
