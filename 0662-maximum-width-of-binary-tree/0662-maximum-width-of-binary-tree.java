@@ -20,6 +20,7 @@ class Solution {
 // A) Mark root as 0 index (We can mark it as 1 as well, the only difference would be te way         we numbered nodes)
 // B) Left child index would be 2*index and Right child index would be 2*index+1
 // C) Ans = rightmost child index - leftmost child index + 1
+    
     int maxWidth = Integer.MIN_VALUE;
     public int widthOfBinaryTree(TreeNode root) {
         helper(root);
