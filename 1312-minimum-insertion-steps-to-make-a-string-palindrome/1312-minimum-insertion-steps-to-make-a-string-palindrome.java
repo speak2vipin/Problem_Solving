@@ -4,7 +4,7 @@ class Solution {
     // Find LCS in S and R (Reverse of S)
     // Subtract N (Length of String) - LCS
     // For calculating LCS
-        // Simply Calculate lcs for number of letters in both S AND R. Initially in starting we will be having N. So we will having logic from last index for S AND M.
+        // Simply Calculate lcs for Number of letters in both S AND R. Initially in starting we will be having N. So we will having logic from last index for S AND M.
         // If S.charAt(m-1) == S.charAt(n-1) => dp[m][n] = 1 + lcs(S,R,m-1, n-1)
         // else dp[m][n] = Math.max(lcs(S, R, m-1, n), lcs(S, R, m, n-1))
         // Return dp[m][n];
