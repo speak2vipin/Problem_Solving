@@ -1,4 +1,11 @@
 class Solution {
+    // Logic
+    // Take MaxHeap
+    // Enqueue all stones in it 
+    // Take max two stone
+    // If they are not equal insert (max-secondMax)
+    // Mark max = 0
+    // return max.
     public int lastStoneWeight(int[] stones) {
         PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());
         for(int stone : stones) {
