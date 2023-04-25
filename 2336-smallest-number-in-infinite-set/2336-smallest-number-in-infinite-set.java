@@ -1,4 +1,10 @@
 class SmallestInfiniteSet {
+    // Logic:
+    // A) Take minHeap to fetch the minimum element
+    // B) SmallestPointer will take care of initial infinite set
+    // C) HashSet would be used just to take care of having repetitive values in minHeap
+            // C.1 We can use other method like minHeap.contains() but this would be liner in complexity whereas set.add() would be O(1) operation.
+    // If there is any smaller element than smallerPointer than insert it into minHeap or else for natural numbers smallestPointer will help us.
     
     HashSet<Integer> unique = null;
     int smallestPointer = 0;
