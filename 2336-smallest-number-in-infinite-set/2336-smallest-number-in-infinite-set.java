@@ -2,31 +2,35 @@ class SmallestInfiniteSet {
     
     int [] numbers;
     int smallestPointer = 0;
+    PriorityQueue<Integer> pq = null;
     
     public SmallestInfiniteSet() {
+        pq = new PriorityQueue<Integer>();
         numbers = new int[1001];
         for(int i=1; i<1001; i++) {
             numbers[i] = 1;
+            pq.offer(i);
         }
-        smallestPointer = 1;
     }
     
     public int popSmallest() {
-       // int i = 1;
-        while(numbers[smallestPointer]==0) {
+        /*while(numbers[smallestPointer]==0) {
             smallestPointer++;
         }
-        numbers[smallestPointer]--;
-        return smallestPointer++;
+        numbers[smallestPointer]--;*/
+        int ans = pq.poll();
+        numbers[ans]--;
+        return ans;
     }
     
     public void addBack(int num) {
         if(numbers[num]==0) {
-            numbers[num] = 1;
+            numbers[num]++;
+            pq.offer(num);
         }
-        if(num < smallestPointer) {
-            smallestPointer = num;
-        }
+       // if(num < smallestPointer) {
+         //   smallestPointer = num;
+        //}
     }
 }
 
