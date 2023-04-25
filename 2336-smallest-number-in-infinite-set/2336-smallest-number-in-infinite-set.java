@@ -14,10 +14,6 @@ class SmallestInfiniteSet {
     }
     
     public int popSmallest() {
-        /*while(numbers[smallestPointer]==0) {
-            smallestPointer++;
-        }
-        numbers[smallestPointer]--;*/
         int ans = pq.poll();
         numbers[ans]--;
         return ans;
@@ -28,9 +24,6 @@ class SmallestInfiniteSet {
             numbers[num]++;
             pq.offer(num);
         }
-       // if(num < smallestPointer) {
-         //   smallestPointer = num;
-        //}
     }
 }
 
