@@ -3,13 +3,29 @@ class Solution {
         int N = senate.length();
         int RCount = 0;
         int DCount = 0;
-        for(int i=0; i<N; i++) {
+        Queue<Integer> RQueue = new LinkedList<>();
+        Queue<Integer> DQueue = new LinkedList<>();
+        
+       for(int i=0; i<N; i++) {
             if(senate.charAt(i)=='R') {
-                RCount++;
+                RQueue.offer(i);
             } else {
-                DCount++;
+                DQueue.offer(i);
             }
         }
+        while(!RQueue.isEmpty() && !DQueue.isEmpty()) {
+            int RIndex = RQueue.poll();
+            int DIndex = DQueue.poll();
+            if(RIndex<DIndex) {
+                RQueue.offer(RIndex+N);
+            } else {
+                DQueue.offer(DIndex+N);
+            }
+        }
+        return DQueue.isEmpty() ? "Radiant" : "Dire";
+    }
+        
+        /*
         boolean banned[] = new boolean[N];
         int turn = 0;
         while(RCount > 0 && DCount>0) {
@@ -36,5 +52,6 @@ class Solution {
             }
             turn = (turn+1)%N;
         }
-    }
+    }*/
+        
 }
