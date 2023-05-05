@@ -1,5 +1,5 @@
 class Solution {
-    int ans = Integer.MIN_VALUE;
+    int ans = 0;
     public int maxVowels(String s, int k) {
         int N = s.length();
         int count = 0;
