@@ -3,7 +3,7 @@ class Solution {
         long count = 0;
         int mod = 1000_000_007;
         int N = s.length();
-        int i = 0;
+         /*int i = 0;
         int j = 0;;
         while(i<N) {
             if(s.charAt(i)=='1') {
@@ -21,6 +21,15 @@ class Solution {
                 i = j;
             }
             i++;
+        }*/
+        int res = 0;
+        for(int i=0; i<N; i++) {
+            if(s.charAt(i)=='1') {
+                res++;
+                count = (count+res)%mod;
+            } else {
+                res=0;
+            }
         }
         return (int)count;
     }
