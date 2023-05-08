@@ -14,7 +14,6 @@ class Solution {
             char temp = word.charAt(i);
             if(vowels.contains(temp)) {
                 count += (1l*(N-i)) * (i+1);
-               
             }
         }
         return count;   
