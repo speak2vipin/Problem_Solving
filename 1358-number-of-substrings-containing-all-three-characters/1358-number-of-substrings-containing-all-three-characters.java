@@ -1,4 +1,10 @@
 class Solution {
+    // Logic
+        // will be using Sliding window
+        // keep on counting ferquency of every character
+        // If each character's index is greater than 0 than reduce left hand window till we are reducing count of one charcter to 0
+            // In parallel keep on counting number of abc count
+        // keep on adding to count variable the occurrence of abc substring.
     public int numberOfSubstrings(String s) {
        // HashSet<Character> set = new HashSet<>();
         char character[] = new char[3];
