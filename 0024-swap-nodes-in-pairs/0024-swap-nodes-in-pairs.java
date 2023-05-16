@@ -23,11 +23,10 @@ class Solution {
             if(isHeadSet) {
                 head = temp;
                 isHeadSet = false;
-                join = prev;
             } else {
                 join.next = temp;
-                join = prev;
             }
+            join = prev;
         }
         return head;
         
