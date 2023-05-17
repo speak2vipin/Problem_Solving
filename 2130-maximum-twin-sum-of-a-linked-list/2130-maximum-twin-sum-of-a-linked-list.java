@@ -48,7 +48,7 @@ class Solution {
         
     slow = head;
     int max = Integer.MIN_VALUE;
-    
+    // Iterating original list from head and reversed list from back to calculate sum
     while(curr!=null) {
         max = Math.max(max, slow.val + curr.val);
         slow = slow.next;
