@@ -1,4 +1,8 @@
 class Solution {
+    // Logic:
+    // Create a visit array
+        // Mark node visited by using edge matrix. So mark destination node as visited.
+    // In last include all the nodes which are note visited in res list.
     public List<Integer> findSmallestSetOfVertices(int n, List<List<Integer>> edges) {
         boolean isConnectionExist[] = new boolean[n];
         for(List<Integer> edge : edges) {
