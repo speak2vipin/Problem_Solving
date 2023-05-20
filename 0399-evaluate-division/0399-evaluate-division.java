@@ -1,4 +1,15 @@
 class Solution {
+    // Logic
+    // Create adj map 
+            // having key -> val and weight
+            //        val -> key and 1/weight
+    // Execute simple DFS
+        // Have default distance as -1.0
+        // Take visit set to keep track of visited node
+        // If there is no mapping for source or destination return -1.0 or de default value
+        // if(source == dest) { return val};
+        // Execute simple DFS and keep track of val = val * weight
+            
     
     Map<String, Map<String, Double>> map = new HashMap<>();
 	double res[] = null;
