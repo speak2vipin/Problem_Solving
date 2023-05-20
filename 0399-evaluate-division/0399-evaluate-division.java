@@ -1,7 +1,9 @@
 class Solution {
-  Map<String, Map<String, Double>> map = new HashMap<>();
+    
+    Map<String, Map<String, Double>> map = new HashMap<>();
 	double res[] = null;
-
+ 
+    
 	public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
 		int index = 0;
 		int size = queries.size();
@@ -38,7 +40,7 @@ class Solution {
 		if(visit.contains(source)) {
 			return;
 		}
-		
+       
 		visit.add(source);
 		
 		Map<String, Double> temp = map.get(source);
