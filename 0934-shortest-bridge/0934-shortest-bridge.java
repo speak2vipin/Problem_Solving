@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/shortest-bridge/solution/1900391
 // Logic
     // Mind it
         // U have two islands
