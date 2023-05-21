@@ -1,4 +1,14 @@
+// Logic
+    // Mind it
+        // U have two islands
+    // Find a land
+        // DFS to cover all the island i.e. grid[i][j]=1 and enqueued it
+    // Exceute BFS to all the nodes and if grid[i+dx][j+dy]==0, enqueued it 
+        // Increment distance
+        // if grid[i+dx][j+dy]==1 return distance
+
 class Solution {
+    
     int xBoundary = -1;
 	int yBoundary = -1;
 	int dx[] = { -1, 0, 1, 0 };
