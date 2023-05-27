@@ -1,4 +1,9 @@
 class Solution {
+    // Logic:
+    // Consider every stone as the first stone or step
+    // So ideally it will be of Alice & i+1 will be of Bob
+    // So stoneValue[i] - dp[i+1] will be tje difference between Alice's and Bob
+    // If dp[0] > 0 i.e. Alice has won or Bob will won.
     public String stoneGameIII(int[] stoneValue) {
         int n = stoneValue.length;
         int dp[] = new int[n+1];
