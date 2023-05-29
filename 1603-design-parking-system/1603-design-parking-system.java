@@ -1,20 +1,19 @@
 class ParkingSystem {
-    Map<Integer, Integer> park = null;
+    int[] park = null;
 
     public ParkingSystem(int big, int medium, int small) {
-        park = new HashMap<>();
-        park.put(1, big);
-        park.put(2, medium);
-        park.put(3, small);
+        park = new int[4];
+        park[1] = big;
+        park[2] = medium;
+        park[3] = small;
     }
     
     public boolean addCar(int carType) {
-        if(park.get(carType)==0) {
-            return false;
-        } else {
-            park.put(carType, park.get(carType)-1);
+        if(park[carType]>0) {
+            park[carType]--;
+            return true;
         }
-        return true;
+        return false;
     }
 }
 
