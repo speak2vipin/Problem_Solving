@@ -1,8 +1,7 @@
 class Solution {
-   Map<Integer, List<Integer>> adj = new HashMap<>();
-	boolean visit[] = null;
+    
+    Map<Integer, List<Integer>> adj = new HashMap<>();
 	int count = 0;
-	int res = Integer.MIN_VALUE;
 
 	public int maximumDetonation(int[][] bombs) {
 		
@@ -27,23 +26,23 @@ class Solution {
 
 		int answer = 0;
         for (int i = 0; i < N; i++) {
-        	visit = new boolean[N];
+        	boolean visit[] = new boolean[N];
         	if (!visit[i]) {
 				count = 1;
-				dfs(i);
+				dfs(i, visit);
 				answer = Math.max(answer, count);
         	}
         }
 		return answer;
 	}	
 
-	void dfs(int node) {
+	void dfs(int node, boolean visit[]) {
 		visit[node] = true;
 		if (adj.get(node) != null) {
 			for (Integer neighbour : adj.get(node)) {
 				if (!visit[neighbour]) {
 					count++;
-					dfs(neighbour);
+					dfs(neighbour, visit);
 				}
 			}
 		}
