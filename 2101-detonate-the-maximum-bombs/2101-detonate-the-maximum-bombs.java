@@ -1,4 +1,11 @@
 class Solution {
+    // Logic:
+        // Calculate distance between every detonators and check whether it is less then the effect radius of first detonators
+        // If it is then there is an edge between those detonators
+        // Traverse from all node and check for maximum node on the path
+        // Node:
+            // Check everynode to every other node except i!=j
+            // A can blast B since it has that much radius but vice versa is not true
     
     Map<Integer, List<Integer>> adj = new HashMap<>();
 	int count = 0;
