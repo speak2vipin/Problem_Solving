@@ -33,6 +33,8 @@ class Solution {
 
 		int answer = 0;
         for (int i = 0; i < N; i++) {
+            // U will be checking every node's connecting path to other node's
+            // May be A is coming in path B but it may not be coming in the path of C
         	boolean visit[] = new boolean[N];
         	if (!visit[i]) {
 				count = 1;
