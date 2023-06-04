@@ -1,6 +1,11 @@
 class Solution {
-    Map<Integer, ArrayList<Integer>> adj = new HashMap<>();
+    // Logic:
+        // Simple DFS will work here.
+        // Build adj matrix
+        // visited matrix will take care of visited nodes.
+    Map<Integer, ArrayList<Integer>> adj = null;
     public int findCircleNum(int[][] isConnected) {
+        adj = new HashMap<>();
         int N = isConnected.length;
         for(int i=0; i<N; i++) {
            // int temp[] = isConnected[i];
