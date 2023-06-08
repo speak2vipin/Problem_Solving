@@ -1,5 +1,6 @@
 class Solution {
-    public int countNegatives(int[][] grid) {
+    // TC: O(M*logN)
+    public int countNegativesByBinarySearch(int[][] grid) {
         int ans = 0;
         int N = grid[0].length-1;
         for(int temp[] :  grid) {
@@ -23,5 +24,20 @@ class Solution {
             }
         }
         return index;
+    }
+    
+    public int countNegatives(int[][] grid) {
+        int ans = 0;
+        int N = grid[0].length-1;
+        int n = N;
+        for(int temp[] :  grid) {
+            while(n>-1 && temp[n]<0) {
+                n--;
+            }
+            
+            ans = ans + (N-n);
+            
+        }
+        return ans;
     }
 }
