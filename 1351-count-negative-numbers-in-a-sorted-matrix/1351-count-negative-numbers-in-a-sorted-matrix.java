@@ -34,9 +34,7 @@ class Solution {
             while(n>-1 && temp[n]<0) {
                 n--;
             }
-            
             ans = ans + (N-n);
-            
         }
         return ans;
     }
