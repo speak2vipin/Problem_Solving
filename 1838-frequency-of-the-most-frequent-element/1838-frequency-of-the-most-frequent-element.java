@@ -1,4 +1,13 @@
 class Solution {
+    // Logic:
+        // Based on 2-pointer approach
+        // Simpley Sort the array
+        // calculate sum with every number array indexed number
+        // sum + k > num[j] (Max number) * number of elements
+            //continue;
+        // simple reduce elements from ith side untill sum + k > (max * number of elements)
+        // Calculate number of elements at every step
+        // return number count
     public int maxFrequency(int[] nums, int k) {
         Arrays.sort(nums);
         int resCount = -1;
