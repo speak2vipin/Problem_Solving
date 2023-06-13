@@ -13,7 +13,7 @@ class Solution {
                 keyCol.append(grid[j][i]).append("_");
             }
             mapRow.put(keyRow.toString(), mapRow.getOrDefault(keyRow.toString(), 0)+1);
-            mapCol.put(keyCol.toString(), mapCol.getOrDefault(keyCol.toString(), 0)+1);
+            //mapCol.put(keyCol.toString(), mapCol.getOrDefault(keyCol.toString(), 0)+1);
         }
         
         int resRow = 0;
