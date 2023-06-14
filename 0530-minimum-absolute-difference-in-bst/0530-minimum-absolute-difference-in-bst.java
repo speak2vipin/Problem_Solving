@@ -14,6 +14,11 @@
  * }
  */
 class Solution {
+    // Logic:
+        // Inorder traversal makes values in sorted order. Subsequently you can calculate    minimum difference. TC: O(n), SC: O(n)
+        // Or we can maintain a prev value to keep track of previous value as inorder traversal would be in sorted order so we need to find the diff of current and prev node only.
+// Doing this we can reduce it's space complexity to O(h), height of the tree.
+    
     Integer prev = null;
     int ans = Integer.MAX_VALUE;
     
