@@ -14,6 +14,10 @@
  * }
  */
 class Solution {
+    // Logic:
+        // Execute level order traversal
+        // Find sum at every level
+        // Return level with maximum sum
     public int maxLevelSum(TreeNode root) {
         Queue<TreeNode> qe = new LinkedList<>();
         qe.offer(root);
