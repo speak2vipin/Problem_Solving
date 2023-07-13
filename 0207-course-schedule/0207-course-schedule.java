@@ -1,3 +1,5 @@
+// Note:- We can't use Union for cycle detection in directed graph.
+
 class Solution {
     /*int parent[] = null;
     int rank[] = null;
