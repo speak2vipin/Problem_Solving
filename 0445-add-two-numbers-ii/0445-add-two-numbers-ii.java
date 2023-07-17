@@ -9,7 +9,7 @@
  * }
  */
 class Solution {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+   /* public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         l1 = reverseList(l1);
         l2 = reverseList(l2);
         ListNode head = null;
@@ -53,6 +53,7 @@ class Solution {
             curr.next = head;
             head = curr; 
         }
+        
         if(carry!=0) {
             ListNode curr = new ListNode(carry);
             curr.next = head;
@@ -64,7 +65,48 @@ class Solution {
     }
     
     ListNode reverseList(ListNode l1) {
-       
+        ListNode prev = null;
+        ListNode curr = null;
+        while(l1!=null) {
+            curr = l1;
+            l1 = l1.next;
+            curr.next = prev;
+            prev = curr;
+        }
+        return curr;
+    }*/
+        
+        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        l1 = reverseList(l1);
+        l2 = reverseList(l2);
+        ListNode head = null;
+        int val = 0;
+        int carry = 0;
+        
+		while(l1!=null || l2!=null || carry!=0) {
+            val = carry;
+            
+			if(l1!=null) {
+				val += l1.val;
+				l1 = l1.next;
+			}
+			
+			if(l2!=null) {
+				val += l2.val;
+				l2 = l2.next;
+            }
+            
+			carry = val/10;
+            val = val%10;
+            ListNode curr = new ListNode(val);
+            curr.next = head;
+            head = curr;
+        }
+        
+        return head;
+    }
+    
+    ListNode reverseList(ListNode l1) {
         ListNode prev = null;
         ListNode curr = null;
         while(l1!=null) {
