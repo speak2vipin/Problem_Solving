@@ -20,18 +20,14 @@ class Solution {
 	            if(isPush)
 	            	st.push(asteroid);
 	        }
+	        int size = st.size();
+	        int res[] = new int[size];
 	        
-	        int res[] = null;
-	        if(!st.isEmpty()) {
-	            int size = st.size();
-	            res = new int[size];
-	            while(!st.isEmpty()) {
-	                res[size-1] = st.pop();
-	                size--;
-	            }
-	        } else {
-	            return new int[]{};
+	        while(!st.isEmpty()) {
+	            res[size-1] = st.pop();
+	            size--;
 	        }
+	        
 	        return res;
 	    }
 }
