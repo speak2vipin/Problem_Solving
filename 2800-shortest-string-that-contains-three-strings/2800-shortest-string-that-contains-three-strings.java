@@ -1,4 +1,13 @@
 class Solution {
+    /*
+        Logic:
+            A) getMergedThree() -> 
+                find contains() of s1 and s2 or whether s1 is holding some starting part of s2
+                if yes then first find that common concated string.
+            B) Try for every pair of string
+            C) Check for length of String if it is less or more then act accordingly
+            D) Note: list.get(i).compareTo(res)<0 if and if  list.get(i) is alphbetically smaller than res.
+    */
     public String minimumString(String a, String b, String c) {
         List<String> list = new ArrayList<>();
         String s1 = getMergedThree(a,b,c);
