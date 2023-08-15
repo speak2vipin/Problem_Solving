@@ -10,8 +10,6 @@
  */
 class Solution {
     public ListNode partition(ListNode head, int x) {
-       
-		
 		ListNode prev = null;
 		ListNode last = null;
 		ListNode curr = head;
@@ -70,10 +68,7 @@ class Solution {
 			tempLast = tempPrev;
 			tempPrev = curr;
 			curr = curr.next;
-
 		}
 		return head;
-	
-	
     }
 }
