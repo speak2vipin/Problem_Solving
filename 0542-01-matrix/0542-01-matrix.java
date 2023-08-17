@@ -30,13 +30,9 @@ class Solution {
             }
         }
         return res;
-    
     }
     
     boolean isValid_1(int i, int j, int m, int n, int mat[][]) {
         return i>-1 && i<m && j>-1 && j<n && mat[i][j]==1;
-    }
-    boolean isValid_0(int i, int j, int m, int n, int mat[][]) {
-        return i>-1 && i<m && j>-1 && j<n && mat[i][j]==0;
     }
 }
