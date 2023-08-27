@@ -1,6 +1,10 @@
 class Solution {
-    public int findLongestChain(int[][] pairs) {
-        
+    // Logic:
+        // TRy to find a block with minimum second value so that second block can be considered as soon as possible
+        // Sort Array by second value
+        // find pairs count which are increasing
+    
+    public int findLongestChain(int[][] pairs) {        
 	        Arrays.sort(pairs, (x,y) -> (x[1] - y[1]));
 	        int n = pairs.length;
 	        int j = 1;
@@ -13,9 +17,6 @@ class Solution {
 	            }
 	            j++;
 	        }
-	        return count;
-	        
-	    
-        
+	        return count;  
     }
 }
