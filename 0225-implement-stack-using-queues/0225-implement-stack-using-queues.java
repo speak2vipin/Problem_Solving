@@ -9,9 +9,15 @@ class MyStack {
     
     public void push(int x) {
         q1.offer(x);
+        int sz = q1.size();
+        while(sz>1) {
+            q1.offer(q1.poll());
+            sz--;
+        }
     }
     
     public int pop() {
+        /*
         int value = -1;
         
         if(!q1.isEmpty()) {
@@ -27,10 +33,12 @@ class MyStack {
             q1 = temp;
         }
         return value;
+        */
+        return q1.poll();
     }
     
     public int top() {
-        int value = -1;
+       /* int value = -1;
         if(!q1.isEmpty()) {
             int size = q1.size();
             for(int i=0; i<size; i++) {
@@ -42,6 +50,9 @@ class MyStack {
             q1 = temp;
         } 
         return value;
+        */
+        return q1.peek();
+        
     }
     
     public boolean empty() {
