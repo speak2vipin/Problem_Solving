@@ -1,6 +1,11 @@
 class Solution {
     public int uniquePaths(int m, int n) {
         int dp[][] = new int[m][n];
+        for(int d[] : dp) {
+            Arrays.fill(d, -1);
+        }
+        return helper(dp, 0, 0, m, n);
+        /*
         for(int i=0; i<m; i++) {
             dp[i][0] = 1;
         }
@@ -13,19 +18,27 @@ class Solution {
             }
         }
         return dp[m-1][n-1];
+        */
     }
     
-   /* public int helper(int dp[][], int m, int n) {
-        if(m==M-1 && n==N-1) {
-            dp[m][n] = dp[m-1][n];
-            return 0;
-        }
-        if(m==M-1) {
-            
-        }
-        if(m==N-1) {
-            
+    public int helper(int dp[][], int i, int j, int m, int n) {
+        if(i==m-1 && j==n-1) {
+            return dp[i][j] = 1;
         }
         
-    }*/
+        if(dp[i][j]!=-1) {
+            return dp[i][j];
+        }
+        
+        int maxI = 0;
+        if(i<m-1) {
+            maxI = helper(dp, i+1, j, m, n);  
+        }
+        
+        int maxJ = 0;
+        if(j<n-1) {
+            maxJ = helper(dp, i, j+1, m, n);  
+        }
+        return dp[i][j] = maxI + maxJ;
+    }
 }
