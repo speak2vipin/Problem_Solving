@@ -32,10 +32,7 @@ class Solution {
             int extra = count%k;
             while(curr!=null) {
                 ListNode temp = curr;
-                for(int i=0; i<part-1; i++) {
-                    if(curr==null) {
-                        break;
-                    }
+                for(int i=0; (i<part-1 && curr!=null); i++) {
                     curr = curr.next; 
                 }
                 if(curr!=null) {
