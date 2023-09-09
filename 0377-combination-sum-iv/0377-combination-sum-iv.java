@@ -53,7 +53,7 @@ class Solution {
         long dp[] = new long[target + 1];
         helper(dp, target, nums);
 		return (int)dp[target];
-	}
+	 }
     
     void helper(long dp[], int target, int nums[]) {
         dp[0] = 1;
