@@ -16,8 +16,9 @@ class Solution {
                 if(memo.keySet().contains(next)) {
                     memo.put(word, Math.max(memo.get(word), memo.get(next)+1)); 
                 }
+                res = Math.max(res, memo.get(word));
             }
-            res = Math.max(res, memo.get(word));
+            
         }
         return res;
     }
