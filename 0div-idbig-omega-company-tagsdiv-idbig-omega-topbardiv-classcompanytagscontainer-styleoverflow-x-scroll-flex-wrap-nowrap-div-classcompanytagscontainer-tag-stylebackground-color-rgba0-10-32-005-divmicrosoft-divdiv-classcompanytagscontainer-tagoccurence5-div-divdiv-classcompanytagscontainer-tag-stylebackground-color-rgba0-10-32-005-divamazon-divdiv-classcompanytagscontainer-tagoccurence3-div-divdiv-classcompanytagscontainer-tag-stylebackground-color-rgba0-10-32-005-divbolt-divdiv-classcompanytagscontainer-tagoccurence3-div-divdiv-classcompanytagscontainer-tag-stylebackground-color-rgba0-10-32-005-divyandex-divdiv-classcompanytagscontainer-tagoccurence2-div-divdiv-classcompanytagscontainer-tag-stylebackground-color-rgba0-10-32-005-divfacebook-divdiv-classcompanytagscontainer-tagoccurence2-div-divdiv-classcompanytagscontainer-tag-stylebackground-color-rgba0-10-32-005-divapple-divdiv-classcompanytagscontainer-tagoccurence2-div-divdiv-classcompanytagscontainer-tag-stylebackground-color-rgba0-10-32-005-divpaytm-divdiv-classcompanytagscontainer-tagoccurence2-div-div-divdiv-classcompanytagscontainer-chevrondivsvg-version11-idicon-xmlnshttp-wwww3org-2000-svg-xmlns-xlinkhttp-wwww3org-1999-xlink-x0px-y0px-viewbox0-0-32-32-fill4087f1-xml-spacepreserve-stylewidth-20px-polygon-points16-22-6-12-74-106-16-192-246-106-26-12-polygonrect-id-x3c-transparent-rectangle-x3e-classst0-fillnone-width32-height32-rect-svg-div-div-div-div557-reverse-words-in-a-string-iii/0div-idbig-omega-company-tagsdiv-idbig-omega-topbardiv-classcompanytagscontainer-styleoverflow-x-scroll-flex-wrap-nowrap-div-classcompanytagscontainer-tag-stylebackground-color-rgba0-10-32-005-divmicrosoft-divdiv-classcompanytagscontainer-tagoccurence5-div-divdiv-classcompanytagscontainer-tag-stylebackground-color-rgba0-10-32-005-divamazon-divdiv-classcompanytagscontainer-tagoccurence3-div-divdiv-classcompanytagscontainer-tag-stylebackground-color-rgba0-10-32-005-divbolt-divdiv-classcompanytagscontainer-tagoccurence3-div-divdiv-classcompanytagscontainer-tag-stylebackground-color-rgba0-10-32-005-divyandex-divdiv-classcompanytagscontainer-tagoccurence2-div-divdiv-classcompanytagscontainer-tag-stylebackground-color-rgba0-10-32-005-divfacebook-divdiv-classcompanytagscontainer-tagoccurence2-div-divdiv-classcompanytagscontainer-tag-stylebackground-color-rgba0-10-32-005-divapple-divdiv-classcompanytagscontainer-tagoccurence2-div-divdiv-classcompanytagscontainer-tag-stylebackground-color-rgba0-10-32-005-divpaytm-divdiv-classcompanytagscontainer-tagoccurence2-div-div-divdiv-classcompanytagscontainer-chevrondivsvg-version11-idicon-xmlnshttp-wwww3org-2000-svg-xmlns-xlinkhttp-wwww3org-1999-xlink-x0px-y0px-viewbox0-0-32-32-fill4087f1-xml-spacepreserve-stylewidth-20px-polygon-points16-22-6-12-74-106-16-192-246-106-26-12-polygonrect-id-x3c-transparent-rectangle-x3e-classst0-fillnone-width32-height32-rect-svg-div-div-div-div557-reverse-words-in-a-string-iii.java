@@ -34,7 +34,7 @@ class Solution {
     }
     
     void reverseString(char s[], int st, int en) {
-        while(st<=en) {
+        while(st<en) {
             char temp = s[st];
             s[st] = s[en];
             s[en] = temp;
