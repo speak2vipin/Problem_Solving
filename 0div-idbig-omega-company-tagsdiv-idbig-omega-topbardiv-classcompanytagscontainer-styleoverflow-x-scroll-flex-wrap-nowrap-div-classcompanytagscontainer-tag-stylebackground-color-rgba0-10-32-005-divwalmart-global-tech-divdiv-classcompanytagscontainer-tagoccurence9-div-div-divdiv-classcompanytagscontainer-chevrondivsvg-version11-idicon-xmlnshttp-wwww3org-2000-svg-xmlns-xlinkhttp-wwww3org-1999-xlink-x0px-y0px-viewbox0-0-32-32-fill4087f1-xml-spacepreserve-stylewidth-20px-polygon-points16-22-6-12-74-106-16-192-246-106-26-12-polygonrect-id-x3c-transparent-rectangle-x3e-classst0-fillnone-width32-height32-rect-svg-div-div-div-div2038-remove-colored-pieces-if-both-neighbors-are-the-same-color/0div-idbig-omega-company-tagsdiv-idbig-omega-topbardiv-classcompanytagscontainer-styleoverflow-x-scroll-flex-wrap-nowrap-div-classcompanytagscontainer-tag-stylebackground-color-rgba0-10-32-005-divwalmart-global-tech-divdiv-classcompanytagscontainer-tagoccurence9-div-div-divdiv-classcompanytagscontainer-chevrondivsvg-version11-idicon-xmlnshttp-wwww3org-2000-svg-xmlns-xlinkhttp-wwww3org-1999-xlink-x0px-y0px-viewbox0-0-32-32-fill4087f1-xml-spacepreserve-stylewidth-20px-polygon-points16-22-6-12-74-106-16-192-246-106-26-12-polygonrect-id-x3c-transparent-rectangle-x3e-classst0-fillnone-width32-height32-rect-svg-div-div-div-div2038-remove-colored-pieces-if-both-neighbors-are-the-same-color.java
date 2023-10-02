@@ -9,7 +9,8 @@ class Solution {
         while(i<n && j<n) {
             
             while(i<n-1 && 
-                  (colors.charAt(i-1)!='A' || colors.charAt(i-1)!=colors.charAt(i+1)
+                  (colors.charAt(i-1)!='A' 
+                    || colors.charAt(i-1)!=colors.charAt(i+1)
                     || colors.charAt(i-1)!=colors.charAt(i))) {
                 i++;
             }
@@ -18,8 +19,9 @@ class Solution {
             }
             i++;
             while(j<n-1 && 
-                  (colors.charAt(j-1)!='B' || colors.charAt(j-1)!=colors.charAt(j+1)
-                    || colors.charAt(j-1)!=colors.charAt(j))) {
+                  (colors.charAt(j-1)!='B' 
+                   || colors.charAt(j-1)!=colors.charAt(j+1)
+                   || colors.charAt(j-1)!=colors.charAt(j))) {
                 j++;
             }
             if(j==n-1) {
