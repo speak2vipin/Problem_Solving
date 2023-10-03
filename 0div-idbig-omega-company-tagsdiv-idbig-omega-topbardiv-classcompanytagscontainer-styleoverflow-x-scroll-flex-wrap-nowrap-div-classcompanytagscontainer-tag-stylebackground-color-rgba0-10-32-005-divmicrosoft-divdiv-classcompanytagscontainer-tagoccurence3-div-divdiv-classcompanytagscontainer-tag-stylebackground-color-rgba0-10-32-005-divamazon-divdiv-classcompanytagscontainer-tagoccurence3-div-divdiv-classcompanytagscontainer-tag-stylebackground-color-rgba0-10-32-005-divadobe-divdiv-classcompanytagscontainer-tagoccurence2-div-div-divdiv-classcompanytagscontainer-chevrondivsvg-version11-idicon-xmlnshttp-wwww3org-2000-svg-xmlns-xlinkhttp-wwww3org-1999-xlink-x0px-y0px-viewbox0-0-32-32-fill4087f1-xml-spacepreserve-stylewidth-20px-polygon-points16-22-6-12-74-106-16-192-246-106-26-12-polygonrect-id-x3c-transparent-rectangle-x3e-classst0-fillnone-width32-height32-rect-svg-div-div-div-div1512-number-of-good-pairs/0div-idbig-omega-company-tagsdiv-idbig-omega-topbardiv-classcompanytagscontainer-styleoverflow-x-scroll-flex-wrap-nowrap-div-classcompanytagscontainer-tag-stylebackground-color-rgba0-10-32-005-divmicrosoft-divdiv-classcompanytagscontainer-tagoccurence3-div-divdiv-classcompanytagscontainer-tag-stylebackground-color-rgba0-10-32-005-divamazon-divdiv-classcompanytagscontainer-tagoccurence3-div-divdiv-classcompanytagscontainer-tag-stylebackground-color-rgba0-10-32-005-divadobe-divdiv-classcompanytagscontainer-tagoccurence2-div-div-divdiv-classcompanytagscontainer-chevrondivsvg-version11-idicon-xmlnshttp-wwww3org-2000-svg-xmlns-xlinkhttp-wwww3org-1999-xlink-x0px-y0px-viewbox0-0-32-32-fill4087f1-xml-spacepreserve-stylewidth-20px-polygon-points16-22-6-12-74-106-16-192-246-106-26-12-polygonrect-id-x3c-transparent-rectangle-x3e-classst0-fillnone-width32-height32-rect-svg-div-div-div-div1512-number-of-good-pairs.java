@@ -1,18 +1,14 @@
 class Solution {
     public int numIdenticalPairs(int[] nums) {
         int n = nums.length;
-        Arrays.sort(nums);
-        int count = 0;
-        int i=0;
-        while(i<n) {
-            int j=i+1;
-            while(j<n && nums[j]==nums[i]) {
-                j++;
-            }
-            int number = j-i-1;
-            count += (number * (number+1))/2;
-            i=j;
+        int count[] = new int[101];
+        int res = 0;
+        for(int num : nums) {
+            count[num]++;
         }
-        return count;
+        for(int i=1; i<101; i++) {
+            res += (count[i] * (count[i]-1))/2; 
+        }
+        return res;
     }
 }
