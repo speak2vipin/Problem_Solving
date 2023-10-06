@@ -5,6 +5,7 @@ class Solution {
             return n-1;
         }
         dp = new Integer[n+1];
+        dp[1] = 1;
         dp[2] = 2;
         dp[3] = 3;
         return helper(n);
@@ -12,7 +13,7 @@ class Solution {
     
     int helper(int n) {
         if(n<=3) {
-            return n;
+            return dp[n];
         }
         if(dp[n]!=null) {
             return dp[n];
