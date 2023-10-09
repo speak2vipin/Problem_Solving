@@ -4,7 +4,8 @@ class Solution {
     
     public int[] searchRange(int[] nums, int target) {
         if(nums!=null || nums.length!=0) {
-            search(nums, target, 0, nums.length-1);
+            left = searchLeft(nums, target); 
+            right = searchRight(nums, target);
         }
         int ans[] = new int[2];
         ans[0] = left;
@@ -12,25 +13,43 @@ class Solution {
         return ans;
     }
     
-    void search(int[] nums, int target, int low, int high) {
+    int searchLeft(int[] nums, int target) {
         int n = nums.length;
+        int ans = -1;
+        int low = 0;
+        int high = n-1;
         while(low<=high) {
             int mid = high - (high-low)/2;
             if(nums[mid]==target && (mid==0 || nums[mid-1]!=target)) {
-                left = mid;
-            } else if(nums[mid]==target) {
-                search(nums, target, low, mid-1);
-            } 
-            if(nums[mid]==target && (mid==n-1 ||nums[mid+1]!=target)){
-                right = mid;
-            } else if(nums[mid]==target) {
-                search(nums, target, mid+1, high);
+                ans = mid;
+                break;
             }
-            if(nums[mid] > target) {
-                high = mid-1;
+            if(nums[mid]>=target) {
+                high = mid -1;
             } else {
                 low = mid +1;
             }
         }
+        return ans;
+    }
+    
+    int searchRight(int[] nums, int target) {
+        int n = nums.length;
+        int ans = -1;
+        int low = 0;
+        int high = n-1;
+        while(low<=high) {
+            int mid = high - (high-low)/2;
+            if(nums[mid]==target && (mid==n-1 || nums[mid+1]!=target)) {
+                ans = mid;
+                break;
+            }
+            if(nums[mid]<=target) {
+                low = mid+1;
+            } else {
+                high = mid-1;
+            }
+        }
+        return ans;
     }
 }
