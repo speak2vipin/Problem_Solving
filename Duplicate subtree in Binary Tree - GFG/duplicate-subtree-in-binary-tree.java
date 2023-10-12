@@ -120,9 +120,10 @@ class Node
  */
 
 class Solution {
+    
+    boolean ans = false;
     String marker = "$";
     Set<String> set = new HashSet<>();
-    boolean ans = false;
     int dupSub(Node root) {
         // code here 
         helper(root);
@@ -130,14 +131,18 @@ class Solution {
     }
     
     public String helper(Node root) {
+        
         String s = "";
         if(root==null) {
             return s+marker;        
         }
         String lStr = helper(root.left);
         String rStr = helper(root.right);
+        // One Node will contribute 5 character
+        // Null node will have -> $
+        // Leaf node will have $ % data % $ i.e. 5
         s = s + root.data + "%" + lStr + "%" + rStr;
-        if(s.length()>7 && set.contains(s)) {
+        if(s.length()>5 && set.contains(s)) {
             ans = true;
         }
         set.add(s);
