@@ -1,4 +1,8 @@
 class Solution {
+    // Initially find root of the tree by using Set
+    // Then use Stack/ Recurssion for DFS
+    // If u are going top find a visited node then it will not be a binary tree it would be a graph that is connected by others as well.
+    
     public boolean validateBinaryTreeNodes(int n, int[] leftChild, int[] rightChild) {
         int root = findRoot(n, leftChild, rightChild);
         if(root==-1) {
