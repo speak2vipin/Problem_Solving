@@ -62,9 +62,12 @@ class Solution{
         long quotient = arr[max] + 1;
         for(int i=0; i<n; i++) {
             if((i%2)==0) {
+                // arr[i] = 1 + (6%7)*7 = 43;
+                
                 arr[i] += (arr[max]%quotient)* quotient;
                 max--;
             } else {
+                // arr[i] = 2 + (43%7) * 7
                 arr[i] += (arr[min]%quotient)* quotient;
                 min++;
             }
