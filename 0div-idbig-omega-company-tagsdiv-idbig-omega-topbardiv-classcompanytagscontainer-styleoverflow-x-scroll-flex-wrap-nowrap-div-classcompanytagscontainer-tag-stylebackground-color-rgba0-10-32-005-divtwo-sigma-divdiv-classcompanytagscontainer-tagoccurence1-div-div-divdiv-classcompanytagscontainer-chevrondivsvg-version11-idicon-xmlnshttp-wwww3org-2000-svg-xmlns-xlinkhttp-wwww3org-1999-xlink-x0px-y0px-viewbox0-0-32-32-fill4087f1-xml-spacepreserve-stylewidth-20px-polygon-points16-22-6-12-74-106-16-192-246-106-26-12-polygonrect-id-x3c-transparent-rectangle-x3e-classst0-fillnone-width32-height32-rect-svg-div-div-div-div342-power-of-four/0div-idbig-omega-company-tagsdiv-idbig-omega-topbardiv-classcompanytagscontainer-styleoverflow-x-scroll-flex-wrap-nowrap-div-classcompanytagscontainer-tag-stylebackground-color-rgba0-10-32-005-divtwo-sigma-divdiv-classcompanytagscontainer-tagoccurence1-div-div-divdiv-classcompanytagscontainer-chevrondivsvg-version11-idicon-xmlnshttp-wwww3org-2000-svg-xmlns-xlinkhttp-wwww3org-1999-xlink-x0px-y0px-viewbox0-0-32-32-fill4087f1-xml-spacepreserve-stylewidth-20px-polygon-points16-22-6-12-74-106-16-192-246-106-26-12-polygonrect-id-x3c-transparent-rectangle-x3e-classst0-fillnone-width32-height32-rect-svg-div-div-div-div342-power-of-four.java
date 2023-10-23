@@ -6,7 +6,7 @@ class Solution {
         int count = 0;
         long temp = 1;
         while(temp<n) {
-            temp = (long)(Math.pow(4,count++));
+            temp = (long)Math.pow(4,count++);
         }
         return temp == n;
     }
