@@ -9,9 +9,9 @@ class Solution {
         
         for(int k=1; k<n; k++) {
             long a_next = e ;
-            long i_next = (a + e + o + u)%mod;
-            long e_next = (a + i)%mod;
             
+            long e_next = (a + i)%mod;
+            long i_next = (a + e + o + u)%mod;
             long o_next = (i + u)%mod;
             long u_next = a%mod;
             
