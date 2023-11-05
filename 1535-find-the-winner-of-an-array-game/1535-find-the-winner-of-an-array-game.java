@@ -10,20 +10,14 @@ class Solution {
             max = Math.max(max, a);
         }
         while(true) {
-            if(arr[i]==max) {
-                return max;
+            if(arr[i]==max || tempK==0) {
+                return arr[i];
             }
             if(arr[i%n]>=arr[j%n]) {
                 tempK--;
-                if(tempK==0) {
-                    return arr[i];
-                }
             } else {
                 i = j;
                 tempK = k-1;
-                if(tempK==0) {
-                    return arr[i];
-                }
             }
             j++;
         }
