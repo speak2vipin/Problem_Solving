@@ -12,7 +12,8 @@ class Solution {
         
         int count = 0;
        for(int i=0; i<n; i++) {
-           if(time[i]-i>0) {
+           // Arrival time should be greater than current time
+           if(time[i]>i) {
                count++;
            } else {
                break;
