@@ -12,9 +12,16 @@ class Solution {
         return count;
     }
     
-    long findReverse(int num) { 
-	    StringBuffer sb = new StringBuffer();
+    long findReverse(int num) {
+	   /* StringBuffer sb = new StringBuffer();
 	    sb.append(num);
 	    return Long.parseLong(sb.reverse().toString());
+        */
+        long reverse = 0l;
+        while(num>0) {
+            reverse = reverse*10 + (num%10);
+            num = num/10;
+        }
+        return reverse;
 	}
 }
