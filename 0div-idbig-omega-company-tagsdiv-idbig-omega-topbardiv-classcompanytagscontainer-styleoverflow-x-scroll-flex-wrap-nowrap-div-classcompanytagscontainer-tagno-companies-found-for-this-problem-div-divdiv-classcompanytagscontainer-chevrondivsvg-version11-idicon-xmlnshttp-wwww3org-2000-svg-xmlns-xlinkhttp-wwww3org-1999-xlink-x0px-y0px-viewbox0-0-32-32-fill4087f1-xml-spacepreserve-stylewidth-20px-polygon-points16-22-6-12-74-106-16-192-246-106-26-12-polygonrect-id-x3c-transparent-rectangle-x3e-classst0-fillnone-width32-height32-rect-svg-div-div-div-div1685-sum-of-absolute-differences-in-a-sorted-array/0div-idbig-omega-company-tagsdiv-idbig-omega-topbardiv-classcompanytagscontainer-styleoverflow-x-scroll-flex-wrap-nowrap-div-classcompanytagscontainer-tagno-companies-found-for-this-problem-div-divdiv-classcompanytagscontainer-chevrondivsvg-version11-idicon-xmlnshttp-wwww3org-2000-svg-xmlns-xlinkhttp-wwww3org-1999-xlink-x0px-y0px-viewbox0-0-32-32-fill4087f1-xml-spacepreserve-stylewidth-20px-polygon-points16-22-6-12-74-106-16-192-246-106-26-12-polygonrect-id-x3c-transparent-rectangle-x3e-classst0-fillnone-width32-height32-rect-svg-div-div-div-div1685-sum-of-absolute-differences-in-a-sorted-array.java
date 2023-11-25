@@ -10,16 +10,19 @@ class Solution {
                 prefix[i] = prefix[i-1] + nums[i];
             }
         }
+        
         int result[] = new int[n];
+        int val = 0;
         for(int i=0; i<n; i++) {
             if(i==0) {
-                result[i] = prefix[n-1] - ((n-i)*nums[i]);
+                val = prefix[n-1] - ((n-i)*nums[i]);
             } else if(i==n-1){
-                result[i] = (n*nums[i])-prefix[n-1];
+                val = (n*nums[i])-prefix[n-1];
             } else {
-                result[i] = ((i+1)*nums[i]) - prefix[i] 
+                val = ((i+1)*nums[i]) - prefix[i] 
                         + (prefix[n-1] - prefix[i] - (n-i-1)*nums[i]);
             }
+            result[i] = val;
         }
         return result;
     }
