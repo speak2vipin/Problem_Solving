@@ -1,17 +1,28 @@
 class Solution {
-    int memo[][];
-    int n;
+    int jump[][]={{4,6},
+                  {6,8},
+                  {7,9},
+                  {4,8},
+                  {0,3,9},
+                  {},
+                  {1,7,0},
+                  {2,6},
+                  {1,3},
+                  {4,2}};
+    
+    int memo[][] = null;
+    int n = 0;
     int mod = 1000_000_007;
-    int jumps[][] = {{4,6}, 
-                        {6,8}, 
-                        {7,9},
-                        {4,8},
-                        {3,9,0},
-                        {}, 
-                        {1,7,0}, 
-                        {2,6}, 
-                        {1,3}, 
-                        {2,4}};
+    
+    public int knightDialer(int n) {
+        memo = new int[n+1][10];
+        this.n = n;
+        int ans = 0;
+        for(int i=0; i<10; i++) {
+            ans = (ans + dp(n-1, i))%mod;
+        }
+        return ans;
+    }
     
     int dp(int remain, int square) {
         if(remain==0) {
@@ -21,19 +32,10 @@ class Solution {
             return memo[remain][square];
         }
         int ans = 0;
-        for(int nextSquare : jumps[square]) {
-            ans = (ans + dp(remain-1, nextSquare))%mod;
+        for(int i=0; i<jump[square].length; i++) {
+            ans = (ans + dp(remain-1, jump[square][i]))%mod;
         }
-        memo[remain][square] = ans;
-        return ans;
-    }
-    public int knightDialer(int n) {
-        this.n = n;
-        memo = new int[n+1][10];
-        int ans = 0;
-        for(int square=0; square<10; square++) {
-            ans = (ans + dp(n-1, square))%mod;
-        }
-        return ans;
+        
+        return memo[remain][square]=ans;
     }
 }
