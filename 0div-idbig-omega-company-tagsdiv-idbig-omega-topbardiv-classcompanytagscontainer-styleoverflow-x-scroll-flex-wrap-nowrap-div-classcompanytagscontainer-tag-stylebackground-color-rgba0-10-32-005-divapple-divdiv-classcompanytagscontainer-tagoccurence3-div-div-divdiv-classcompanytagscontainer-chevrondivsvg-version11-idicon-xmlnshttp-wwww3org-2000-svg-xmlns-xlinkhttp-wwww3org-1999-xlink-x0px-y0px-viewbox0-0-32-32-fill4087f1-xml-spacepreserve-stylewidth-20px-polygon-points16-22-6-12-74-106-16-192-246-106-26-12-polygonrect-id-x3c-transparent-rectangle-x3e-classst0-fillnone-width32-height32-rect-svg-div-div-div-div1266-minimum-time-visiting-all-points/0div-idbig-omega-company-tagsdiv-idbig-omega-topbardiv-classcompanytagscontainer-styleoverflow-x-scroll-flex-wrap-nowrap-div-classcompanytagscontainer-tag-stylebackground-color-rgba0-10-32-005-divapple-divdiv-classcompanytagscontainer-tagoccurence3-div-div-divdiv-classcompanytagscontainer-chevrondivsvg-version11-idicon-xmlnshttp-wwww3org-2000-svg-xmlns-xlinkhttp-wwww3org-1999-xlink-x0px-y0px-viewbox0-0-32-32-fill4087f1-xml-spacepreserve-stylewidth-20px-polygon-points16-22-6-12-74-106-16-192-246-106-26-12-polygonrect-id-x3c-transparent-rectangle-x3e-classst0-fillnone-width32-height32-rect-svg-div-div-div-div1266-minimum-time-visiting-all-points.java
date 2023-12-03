@@ -1,4 +1,6 @@
 class Solution {
+    // If u watch it carefully than evry single time we are moving to the max of dx and dy
+    // so it can be simply turn it into minDist += Math.max(dx, dy);
     public int minTimeToVisitAllPoints(int[][] points) {
         int n = points.length;
         int minDist = 0;
@@ -18,4 +20,5 @@ class Solution {
         }
         return minDist;
     }
+    
 }
