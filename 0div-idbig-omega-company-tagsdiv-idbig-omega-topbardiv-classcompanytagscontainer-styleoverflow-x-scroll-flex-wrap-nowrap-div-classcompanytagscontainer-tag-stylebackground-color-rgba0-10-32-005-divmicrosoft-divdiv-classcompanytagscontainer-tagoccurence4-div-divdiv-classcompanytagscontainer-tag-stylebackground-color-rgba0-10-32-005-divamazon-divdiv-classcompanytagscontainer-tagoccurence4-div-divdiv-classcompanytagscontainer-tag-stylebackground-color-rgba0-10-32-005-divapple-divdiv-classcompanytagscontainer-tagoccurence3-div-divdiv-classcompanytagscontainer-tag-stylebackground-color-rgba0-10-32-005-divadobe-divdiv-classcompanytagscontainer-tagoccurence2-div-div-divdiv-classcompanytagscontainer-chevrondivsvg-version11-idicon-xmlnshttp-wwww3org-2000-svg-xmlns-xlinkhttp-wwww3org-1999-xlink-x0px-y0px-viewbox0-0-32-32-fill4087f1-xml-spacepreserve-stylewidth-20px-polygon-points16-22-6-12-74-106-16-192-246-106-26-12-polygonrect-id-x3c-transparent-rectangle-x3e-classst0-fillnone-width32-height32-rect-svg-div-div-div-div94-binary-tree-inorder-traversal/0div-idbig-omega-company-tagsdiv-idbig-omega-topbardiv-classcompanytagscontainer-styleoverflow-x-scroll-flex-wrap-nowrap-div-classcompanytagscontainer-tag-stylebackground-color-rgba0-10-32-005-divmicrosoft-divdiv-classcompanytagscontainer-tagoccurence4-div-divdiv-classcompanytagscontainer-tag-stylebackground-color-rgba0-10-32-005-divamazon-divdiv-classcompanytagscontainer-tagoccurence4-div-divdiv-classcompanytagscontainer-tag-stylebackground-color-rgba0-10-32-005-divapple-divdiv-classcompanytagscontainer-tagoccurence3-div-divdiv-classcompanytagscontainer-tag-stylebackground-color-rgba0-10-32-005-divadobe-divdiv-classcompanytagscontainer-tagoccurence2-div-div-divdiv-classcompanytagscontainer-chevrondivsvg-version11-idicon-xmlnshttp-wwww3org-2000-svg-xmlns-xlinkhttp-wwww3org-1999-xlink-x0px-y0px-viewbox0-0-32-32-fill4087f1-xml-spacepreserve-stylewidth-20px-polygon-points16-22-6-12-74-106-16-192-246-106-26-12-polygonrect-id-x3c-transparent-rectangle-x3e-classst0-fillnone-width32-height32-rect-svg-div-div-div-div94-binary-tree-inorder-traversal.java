@@ -33,7 +33,12 @@ class Solution {
      
     void inorderByStack(List<Integer> ans, TreeNode root) {
         Stack<TreeNode> st = new Stack<>();
-      
+        //if(root==null) {
+          //  return;
+       // }
+        //st.push(root);
+        //root = root.left;
+        // Above steps not required, they will get covered in while(root!=null) & inner while(root!=null) step
         while(root!=null || !st.isEmpty()) {
             while(root!=null) {
                 st.push(root);
