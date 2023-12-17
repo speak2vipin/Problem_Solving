@@ -14,7 +14,9 @@ class FoodRatings {
 			foodsRatingsMap.put(foods[i], ratings[i]);
 			cuisinesFoodMap
 					.computeIfAbsent(cuisines[i],
-							val -> new PriorityQueue<Object[]>((x, y) -> ((Integer) x[0]).compareTo((Integer) y[0]) == 0
+							val -> 
+            new PriorityQueue<Object[]>(
+                (x, y) -> ((Integer) x[0]).compareTo((Integer) y[0]) == 0
 									? (((String) x[1]).compareTo((String) y[1]))
 									: ((Integer) y[0]).compareTo((Integer) x[0])))
 
