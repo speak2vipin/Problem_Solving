@@ -19,6 +19,7 @@ class Solution {
         int ans = Integer.MIN_VALUE;
         for(int i=0; i<n-1; i++) {
             ans = Math.max(ans, prefix[i] + n - count - (i+1 - prefix[i]));
+            ans = Math.max(ans, n - count - (i+1));
         }
         return ans;
     }
