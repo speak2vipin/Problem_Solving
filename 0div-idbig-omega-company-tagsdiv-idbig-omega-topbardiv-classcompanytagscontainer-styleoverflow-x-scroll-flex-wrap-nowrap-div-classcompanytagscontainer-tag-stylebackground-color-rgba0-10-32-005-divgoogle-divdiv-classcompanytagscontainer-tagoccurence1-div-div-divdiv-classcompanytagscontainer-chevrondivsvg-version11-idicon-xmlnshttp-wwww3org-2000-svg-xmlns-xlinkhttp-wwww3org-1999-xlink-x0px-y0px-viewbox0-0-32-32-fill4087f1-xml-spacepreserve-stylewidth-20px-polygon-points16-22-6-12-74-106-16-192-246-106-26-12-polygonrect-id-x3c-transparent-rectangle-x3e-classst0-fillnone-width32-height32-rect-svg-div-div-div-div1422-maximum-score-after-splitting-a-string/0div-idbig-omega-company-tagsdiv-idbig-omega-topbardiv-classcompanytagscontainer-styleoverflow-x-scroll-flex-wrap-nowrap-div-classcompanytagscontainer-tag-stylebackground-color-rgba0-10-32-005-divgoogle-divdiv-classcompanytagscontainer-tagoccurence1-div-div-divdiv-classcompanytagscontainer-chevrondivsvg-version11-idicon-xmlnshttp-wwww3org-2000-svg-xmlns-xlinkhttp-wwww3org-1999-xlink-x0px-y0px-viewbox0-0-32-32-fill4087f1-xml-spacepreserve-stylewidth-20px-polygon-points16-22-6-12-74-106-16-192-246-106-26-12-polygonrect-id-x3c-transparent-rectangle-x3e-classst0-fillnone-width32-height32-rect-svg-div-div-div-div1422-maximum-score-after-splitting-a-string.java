@@ -1,5 +1,5 @@
 class Solution {
-    public int maxScore(String s) {
+    public int maxScoreWithNSpaceComplexity(String s) {
         int n = s.length();
         int count = 0;
         int prefix[] = new int[n];
@@ -19,7 +19,28 @@ class Solution {
         int ans = Integer.MIN_VALUE;
         for(int i=0; i<n-1; i++) {
             ans = Math.max(ans, prefix[i] + n - count - (i+1 - prefix[i]));
-            //ans = Math.max(ans, n - count - (i+1));
+        }
+        return ans;
+    }
+    public int maxScore(String s) {
+        int n = s.length();
+        int one = 0;
+        for(int i=0; i<n; i++) {
+            if(s.charAt(i)=='1') {
+                one++; 
+            }
+        }
+       
+        int ans = Integer.MIN_VALUE;
+        int zero = 0;
+        for(int i=0; i<n-1; i++) {
+            if(s.charAt(i)=='1') {
+                one--; 
+            } else {
+                zero++;
+            }
+            ans = Math.max(ans, zero+one);
+            
         }
         return ans;
     }
