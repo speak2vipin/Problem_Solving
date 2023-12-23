@@ -1,13 +1,11 @@
 class Solution {
     public boolean isPathCrossing(String path) {
         int n = path.length();
-        Set<Dim> dimSet = new HashSet<>();
+        //Set<Dim> dimSet = new HashSet<>();
+        Set<Pair<Integer, Integer>> dimSet = new HashSet<>();
         int point[] = {0,0};
+        dimSet.add(new Pair(point[0], point[1]));
         for(int i=0; i<n; i++) {
-            if(dimSet.contains(new Dim(point[0], point[1]))) {
-                return true;
-            }
-            dimSet.add(new Dim(point[0], point[1]));
             char c = path.charAt(i);
             if(c=='N') {
                 point[1]++;
@@ -18,11 +16,13 @@ class Solution {
             } else {
                 point[0]--;
             }
-            
-        }
-        if(dimSet.contains(new Dim(point[0], point[1]))) {
+            Pair<Integer, Integer> pair = new Pair(point[0], point[1]);
+            if(dimSet.contains(pair)) {
                 return true;
             }
+            dimSet.add(pair);
+        }
+        
         return false;
     }
 }
