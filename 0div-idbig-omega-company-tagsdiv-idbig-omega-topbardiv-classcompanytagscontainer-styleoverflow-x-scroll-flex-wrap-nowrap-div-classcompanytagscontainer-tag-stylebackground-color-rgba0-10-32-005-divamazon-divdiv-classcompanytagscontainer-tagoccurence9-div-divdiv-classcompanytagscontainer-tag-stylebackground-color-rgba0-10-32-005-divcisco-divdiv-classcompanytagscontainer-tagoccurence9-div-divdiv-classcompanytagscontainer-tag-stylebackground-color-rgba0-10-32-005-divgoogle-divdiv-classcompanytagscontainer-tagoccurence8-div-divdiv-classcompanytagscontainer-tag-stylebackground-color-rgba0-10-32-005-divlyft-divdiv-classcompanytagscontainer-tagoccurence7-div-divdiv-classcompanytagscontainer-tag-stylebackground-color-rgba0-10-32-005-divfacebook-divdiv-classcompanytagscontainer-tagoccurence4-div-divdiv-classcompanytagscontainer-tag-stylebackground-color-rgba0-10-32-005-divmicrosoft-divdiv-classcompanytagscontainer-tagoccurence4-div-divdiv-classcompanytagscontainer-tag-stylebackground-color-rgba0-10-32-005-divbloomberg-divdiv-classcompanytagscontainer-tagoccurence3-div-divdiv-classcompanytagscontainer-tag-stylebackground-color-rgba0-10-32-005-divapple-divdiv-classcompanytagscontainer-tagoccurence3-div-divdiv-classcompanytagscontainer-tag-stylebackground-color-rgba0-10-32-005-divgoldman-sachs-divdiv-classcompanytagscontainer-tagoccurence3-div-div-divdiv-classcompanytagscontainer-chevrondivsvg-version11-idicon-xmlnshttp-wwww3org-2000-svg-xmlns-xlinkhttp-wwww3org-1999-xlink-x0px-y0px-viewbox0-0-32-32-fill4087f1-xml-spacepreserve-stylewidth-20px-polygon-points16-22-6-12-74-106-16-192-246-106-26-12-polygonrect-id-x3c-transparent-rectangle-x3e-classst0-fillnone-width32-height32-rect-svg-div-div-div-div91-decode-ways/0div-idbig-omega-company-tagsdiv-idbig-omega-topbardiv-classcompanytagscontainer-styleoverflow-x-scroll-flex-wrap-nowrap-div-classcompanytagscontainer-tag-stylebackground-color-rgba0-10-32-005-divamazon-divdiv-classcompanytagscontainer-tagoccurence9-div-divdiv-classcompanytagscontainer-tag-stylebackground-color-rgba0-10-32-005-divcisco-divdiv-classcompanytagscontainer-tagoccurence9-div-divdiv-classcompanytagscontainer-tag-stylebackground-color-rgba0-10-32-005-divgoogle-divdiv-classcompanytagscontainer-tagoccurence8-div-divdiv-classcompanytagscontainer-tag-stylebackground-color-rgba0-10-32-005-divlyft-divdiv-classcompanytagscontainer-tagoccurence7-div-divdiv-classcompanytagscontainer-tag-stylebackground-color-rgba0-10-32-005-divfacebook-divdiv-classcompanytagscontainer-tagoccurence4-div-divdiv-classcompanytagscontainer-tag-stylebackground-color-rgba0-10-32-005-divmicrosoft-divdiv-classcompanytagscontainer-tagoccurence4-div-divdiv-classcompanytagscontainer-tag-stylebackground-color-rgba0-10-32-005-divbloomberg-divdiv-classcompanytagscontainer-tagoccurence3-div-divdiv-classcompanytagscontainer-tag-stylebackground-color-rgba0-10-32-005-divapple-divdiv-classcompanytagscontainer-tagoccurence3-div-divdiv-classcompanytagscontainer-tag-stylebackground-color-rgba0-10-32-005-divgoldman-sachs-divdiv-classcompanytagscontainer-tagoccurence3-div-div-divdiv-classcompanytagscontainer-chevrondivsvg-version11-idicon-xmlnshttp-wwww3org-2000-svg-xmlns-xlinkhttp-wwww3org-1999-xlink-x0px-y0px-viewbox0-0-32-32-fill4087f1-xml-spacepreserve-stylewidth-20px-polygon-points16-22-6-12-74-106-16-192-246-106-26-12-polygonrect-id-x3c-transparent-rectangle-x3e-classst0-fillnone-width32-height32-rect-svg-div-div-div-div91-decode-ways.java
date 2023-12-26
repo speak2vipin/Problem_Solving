@@ -2,11 +2,11 @@ class Solution {
     int dp[] = null;
     
     public int numDecodings(String s) {
-        //int n = s.length();
-        //dp = new int[n];
+        int n = s.length();
+        dp = new int[n+1];
         //memo(s, 0);
         //return dp[0];
-        return topToBottom(s);
+        return bottomUp(s);
     }
     
     int memo(String s, int i) {
@@ -26,16 +26,16 @@ class Solution {
         return dp[i] = ways;
     }
     
-    int topToBottom(String s) {
+    int bottomUp(String s) {
         int n = s.length();
-        
-        dp = new int[n+1];
-        dp[n] = 1; // Empty string has one way to decode it.
+        dp[n] = 1;
         for(int i=n-1; i>-1; i--) {
-            if(s.charAt(i)=='0') {
+            char letter = s.charAt(i);
+            if(letter=='0') {
                 dp[i] = 0;
             } else {
-                int ways = dp[i+1];
+                int ways = 0;
+                ways = dp[i+1];
                 if(i+1<n && Integer.parseInt(s.substring(i, i+2))<=26) {
                     ways += dp[i+2];
                 }
@@ -43,5 +43,6 @@ class Solution {
             }
         }
         return dp[0];
+        
     }
 }
