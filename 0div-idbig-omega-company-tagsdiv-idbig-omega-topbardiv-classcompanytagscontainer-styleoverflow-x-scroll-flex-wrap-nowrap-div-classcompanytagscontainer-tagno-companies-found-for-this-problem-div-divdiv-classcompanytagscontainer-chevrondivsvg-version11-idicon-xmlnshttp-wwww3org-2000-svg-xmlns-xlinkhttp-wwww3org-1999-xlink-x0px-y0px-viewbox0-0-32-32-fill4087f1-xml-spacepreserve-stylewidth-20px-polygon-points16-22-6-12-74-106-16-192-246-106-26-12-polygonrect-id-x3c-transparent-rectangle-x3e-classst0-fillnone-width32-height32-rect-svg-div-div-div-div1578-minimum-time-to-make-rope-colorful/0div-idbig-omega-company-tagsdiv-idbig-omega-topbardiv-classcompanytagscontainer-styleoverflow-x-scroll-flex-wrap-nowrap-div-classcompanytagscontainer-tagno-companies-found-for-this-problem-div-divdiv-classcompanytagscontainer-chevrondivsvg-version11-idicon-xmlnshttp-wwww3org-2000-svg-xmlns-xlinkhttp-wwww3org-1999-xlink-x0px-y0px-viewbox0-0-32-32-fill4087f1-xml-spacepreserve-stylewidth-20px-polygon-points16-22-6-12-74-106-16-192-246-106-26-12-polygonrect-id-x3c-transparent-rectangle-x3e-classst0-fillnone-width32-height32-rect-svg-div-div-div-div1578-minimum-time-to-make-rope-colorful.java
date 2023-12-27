@@ -1,9 +1,12 @@
 class Solution {
-    
+    int dp[] = null;
     public int minCost(String colors, int[] neededTime) {
        //return Two_Pointer(colors, neededTime);
-         return bottomUp(colors, neededTime);
-        
+         //return bottomUp(colors, neededTime);
+        int N = neededTime.length;
+        dp = new int[N];
+        Arrays.fill(dp, -1);
+        return topDown(colors, neededTime, N-1, 0, 'A');
     }
     
     int Two_Pointer(String colors, int []neededTime) {
@@ -28,7 +31,7 @@ class Solution {
         return totalTime;
     }
     
-  int bottomUp(String c, int[]time) {
+    int bottomUp(String c, int[]time) {
 		int N = c.length();
 		int dp[] = new int[N+1];
 		char prevLetter = 'A';
@@ -46,4 +49,21 @@ class Solution {
 		}
       return dp[N];
 	}
+    
+    int topDown(String s, int time[], int index, int prevTime, char prevLetter) {
+        if(index<0) {
+            return 0;
+        }
+        if(dp[index]!=-1) {
+            return dp[index];
+        }
+        if(s.charAt(index)==prevLetter) {
+            return dp[index] = topDown(s, time, index-1, Math.max(prevTime, time[index]) ,prevLetter) +                         Math.min(prevTime, time[index]);
+            // Hold the maximum value and add minimum value to the cost
+        } else {
+            return dp[index] =  topDown(s, time, index-1, time[index], s.charAt(index));
+        }
+    }
+    
+    
 }
