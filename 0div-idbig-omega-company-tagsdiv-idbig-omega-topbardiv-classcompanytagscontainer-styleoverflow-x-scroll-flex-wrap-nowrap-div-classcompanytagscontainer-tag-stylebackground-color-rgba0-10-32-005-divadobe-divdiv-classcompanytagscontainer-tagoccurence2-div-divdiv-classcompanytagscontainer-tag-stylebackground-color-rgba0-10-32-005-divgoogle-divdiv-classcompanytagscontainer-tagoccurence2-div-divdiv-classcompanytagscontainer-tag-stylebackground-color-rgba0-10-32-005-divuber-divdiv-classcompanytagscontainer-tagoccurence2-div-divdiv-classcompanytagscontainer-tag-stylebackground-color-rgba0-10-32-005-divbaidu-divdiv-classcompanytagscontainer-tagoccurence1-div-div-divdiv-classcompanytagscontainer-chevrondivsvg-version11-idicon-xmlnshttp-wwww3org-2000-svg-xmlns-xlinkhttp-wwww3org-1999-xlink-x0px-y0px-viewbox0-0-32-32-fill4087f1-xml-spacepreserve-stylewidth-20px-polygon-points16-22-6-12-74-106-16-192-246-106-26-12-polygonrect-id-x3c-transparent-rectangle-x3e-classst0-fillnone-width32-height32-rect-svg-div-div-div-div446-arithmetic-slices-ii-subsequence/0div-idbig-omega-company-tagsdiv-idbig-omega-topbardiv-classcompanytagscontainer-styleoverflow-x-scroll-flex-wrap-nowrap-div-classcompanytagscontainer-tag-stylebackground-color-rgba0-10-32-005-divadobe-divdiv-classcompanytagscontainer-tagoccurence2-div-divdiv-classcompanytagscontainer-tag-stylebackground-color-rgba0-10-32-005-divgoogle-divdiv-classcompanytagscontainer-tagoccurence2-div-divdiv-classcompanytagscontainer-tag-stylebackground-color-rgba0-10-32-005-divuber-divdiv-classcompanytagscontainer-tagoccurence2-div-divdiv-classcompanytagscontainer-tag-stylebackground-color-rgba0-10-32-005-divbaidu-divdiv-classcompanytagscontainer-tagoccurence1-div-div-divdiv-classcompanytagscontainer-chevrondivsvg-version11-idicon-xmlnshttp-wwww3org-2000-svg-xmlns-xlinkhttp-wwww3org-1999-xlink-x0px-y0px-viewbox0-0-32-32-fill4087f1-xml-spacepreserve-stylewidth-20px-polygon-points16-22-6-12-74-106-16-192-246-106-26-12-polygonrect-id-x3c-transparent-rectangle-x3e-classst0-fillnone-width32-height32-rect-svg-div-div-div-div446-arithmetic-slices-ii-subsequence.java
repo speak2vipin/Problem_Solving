@@ -1,5 +1,6 @@
 class Solution {
     public int numberOfArithmeticSlices(int[] nums) {
+        // https://leetcode.com/problems/arithmetic-slices-ii-subsequence/discuss/92822/Detailed-explanation-for-Java-O(n2)-solution
         int n = nums.length;
         Map<Long, Integer>[] dp = new Map[n];
         int res = 0;
@@ -17,7 +18,5 @@ class Solution {
             }
         }
         return res;
-         
-        
     }
 }
