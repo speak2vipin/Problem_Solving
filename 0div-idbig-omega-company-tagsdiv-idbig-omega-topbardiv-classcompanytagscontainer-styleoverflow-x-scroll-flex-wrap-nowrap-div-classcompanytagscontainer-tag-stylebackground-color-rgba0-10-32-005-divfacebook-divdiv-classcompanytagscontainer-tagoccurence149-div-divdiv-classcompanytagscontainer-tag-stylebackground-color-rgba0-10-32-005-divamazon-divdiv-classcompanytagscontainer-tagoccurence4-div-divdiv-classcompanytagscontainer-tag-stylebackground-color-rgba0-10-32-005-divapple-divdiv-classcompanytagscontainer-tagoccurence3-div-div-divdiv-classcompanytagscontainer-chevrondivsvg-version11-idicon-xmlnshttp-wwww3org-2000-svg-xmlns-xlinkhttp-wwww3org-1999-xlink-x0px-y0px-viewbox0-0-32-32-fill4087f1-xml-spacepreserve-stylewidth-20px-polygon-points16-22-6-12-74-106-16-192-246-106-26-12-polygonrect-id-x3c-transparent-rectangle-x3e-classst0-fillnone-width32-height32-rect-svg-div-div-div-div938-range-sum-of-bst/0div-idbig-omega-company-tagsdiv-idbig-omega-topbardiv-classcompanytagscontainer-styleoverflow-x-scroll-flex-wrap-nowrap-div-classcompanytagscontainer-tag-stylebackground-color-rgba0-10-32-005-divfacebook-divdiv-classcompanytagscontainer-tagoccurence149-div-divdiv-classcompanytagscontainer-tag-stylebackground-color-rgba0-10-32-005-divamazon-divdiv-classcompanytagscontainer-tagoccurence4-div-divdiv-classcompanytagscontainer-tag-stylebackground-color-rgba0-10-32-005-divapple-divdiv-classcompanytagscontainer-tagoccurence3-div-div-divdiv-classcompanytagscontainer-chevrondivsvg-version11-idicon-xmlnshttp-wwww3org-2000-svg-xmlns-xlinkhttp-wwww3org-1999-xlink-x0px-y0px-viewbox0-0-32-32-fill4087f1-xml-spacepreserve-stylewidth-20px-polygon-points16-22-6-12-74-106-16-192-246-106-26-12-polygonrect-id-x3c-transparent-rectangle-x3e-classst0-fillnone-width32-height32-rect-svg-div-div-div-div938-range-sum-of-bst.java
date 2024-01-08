@@ -15,7 +15,7 @@
  */
 class Solution {
     int total = 0;
-    public int rangeSumBST(TreeNode root, int low, int high) {
+    public int rangeSumBSTRecursion(TreeNode root, int low, int high) {
         if(root==null) {
             return 0;
         }
@@ -26,6 +26,28 @@ class Solution {
         rangeSumBST(root.right, low, high);
         return total;
     }
+    
+     public int rangeSumBST(TreeNode root, int low, int high) {
+         Stack<TreeNode> st = new Stack<>();
+     
+         int sum = 0;
+         TreeNode temp = root;
+         while(!st.isEmpty() || temp!=null) {
+             if(temp!=null) {
+                 st.push(temp);
+                 temp = temp.left;
+             } else {
+                 temp = st.pop();
+                 if(temp.val>=low && temp.val<=high) {
+                     sum += temp.val;
+                 }
+                 temp = temp.right;
+             }
+         }
+         return sum;
+    }
+    
+    
     
    /* void inorder(TreeNode root) {
         if(root==null) {
