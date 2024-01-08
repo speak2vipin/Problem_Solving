@@ -14,28 +14,25 @@
  * }
  */
 class Solution {
-    List<Integer> l = new ArrayList<>();
+    int total = 0;
     public int rangeSumBST(TreeNode root, int low, int high) {
-        inorder(root);
-        int sum = 0;
-        for(Integer val : l) {
-            //System.out.println(val);
-            if(val>=low && val<=high) {
-                sum += val;
-            }
+        if(root==null) {
+            return 0;
         }
-        return sum;
+        rangeSumBST(root.left, low, high);
+        if(root.val>=low && root.val<=high) {
+            total += root.val;
+        }
+        rangeSumBST(root.right, low, high);
+        return total;
     }
     
-    void inorder(TreeNode root) {
+   /* void inorder(TreeNode root) {
         if(root==null) {
             return;
         }
         inorder(root.left);
         l.add(root.val);
         inorder(root.right);
-    }
-    
-    
-    
+    }*/
 }
