@@ -1,4 +1,9 @@
 class Solution {
+    // First of all length should be same or else u can't convert
+    // First condition says- char type should be same in both the Strings
+    // 2nd condition says- Frequency count must be same both Strings
+    // i.e. a-2 and b-1 --> a-1 and b-2 then a->1 and b->2 by operation in 1st String.
+    
     public boolean closeStrings(String word1, String word2) {
         int N1 = word1.length();
         int N2 = word2.length();
