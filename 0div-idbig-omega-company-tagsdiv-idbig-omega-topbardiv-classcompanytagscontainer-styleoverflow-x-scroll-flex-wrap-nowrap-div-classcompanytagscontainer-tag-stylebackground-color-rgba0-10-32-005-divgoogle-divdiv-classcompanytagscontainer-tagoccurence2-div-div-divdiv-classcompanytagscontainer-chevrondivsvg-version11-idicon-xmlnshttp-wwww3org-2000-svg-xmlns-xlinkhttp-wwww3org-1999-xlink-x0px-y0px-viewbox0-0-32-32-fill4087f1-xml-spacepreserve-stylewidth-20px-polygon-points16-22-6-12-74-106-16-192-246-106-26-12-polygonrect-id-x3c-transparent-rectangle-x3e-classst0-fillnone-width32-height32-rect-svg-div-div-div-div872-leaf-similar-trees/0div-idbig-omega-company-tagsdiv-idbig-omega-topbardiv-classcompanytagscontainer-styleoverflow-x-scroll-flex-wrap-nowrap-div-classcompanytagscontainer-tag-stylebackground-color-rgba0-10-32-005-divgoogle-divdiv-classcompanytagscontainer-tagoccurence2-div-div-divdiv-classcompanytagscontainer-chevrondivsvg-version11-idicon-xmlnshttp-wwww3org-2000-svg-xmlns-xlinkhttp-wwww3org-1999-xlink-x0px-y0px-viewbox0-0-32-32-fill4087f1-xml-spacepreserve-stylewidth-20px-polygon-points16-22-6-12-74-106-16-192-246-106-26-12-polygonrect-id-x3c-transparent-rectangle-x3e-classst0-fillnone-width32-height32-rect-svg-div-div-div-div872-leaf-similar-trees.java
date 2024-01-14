@@ -14,24 +14,26 @@
  * }
  */
 class Solution {
-    List<Integer> l1 = new ArrayList<>();
-    List<Integer> l2 = new ArrayList<>();
+    
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        inorder(root1, l1);
-        inorder(root2, l2);
+        List<Integer> l1 = new ArrayList<>();
+        List<Integer> l2 = new ArrayList<>();
+        helper(root1, l1);
+        helper(root2, l2);
         return l1.equals(l2);
         
     }
     
-    void inorder(TreeNode root, List<Integer> l) {
-        if(root==null) {
-            return;
-        }
+    void helper(TreeNode root, List<Integer> l) {
         if(root.left==null && root.right==null) {
             l.add(root.val);
             return;
         }
-        inorder(root.left, l);
-        inorder(root.right, l);
+        if(root.left!=null) {
+            helper(root.left, l);
+        }
+        if(root.right!=null) {
+            helper(root.right, l);
+        }
     }
 }
