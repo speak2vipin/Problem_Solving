@@ -12,6 +12,32 @@ class Solution {
             return false;
         }
         
+        int freq1[] = new int[26];
+        int freq2[] = new int[26];
+        
+        for(int i=0; i<N1; i++) {
+            freq1[word1.charAt(i)-'a']++;
+            freq2[word2.charAt(i)-'a']++;
+        }
+        for(int i=0; i<26; i++) {
+            if((freq1[i]==0 && freq2[i]!=0) || (freq1[i]==0 && freq2[i]!=0)) {
+                return false;
+            }
+        }
+        Arrays.sort(freq1);
+        Arrays.sort(freq2);
+        
+        return Arrays.equals(freq1, freq2);
+    }
+    
+    public boolean closeStringsUsingHashMaps(String word1, String word2) {
+        int N1 = word1.length();
+        int N2 = word2.length();
+        
+        if(N1!=N2) {
+            return false;
+        }
+        
         HashMap<Character, Integer> freqMap1 = new HashMap<>();
         HashMap<Character, Integer> freqMap2 = new HashMap<>();
         
