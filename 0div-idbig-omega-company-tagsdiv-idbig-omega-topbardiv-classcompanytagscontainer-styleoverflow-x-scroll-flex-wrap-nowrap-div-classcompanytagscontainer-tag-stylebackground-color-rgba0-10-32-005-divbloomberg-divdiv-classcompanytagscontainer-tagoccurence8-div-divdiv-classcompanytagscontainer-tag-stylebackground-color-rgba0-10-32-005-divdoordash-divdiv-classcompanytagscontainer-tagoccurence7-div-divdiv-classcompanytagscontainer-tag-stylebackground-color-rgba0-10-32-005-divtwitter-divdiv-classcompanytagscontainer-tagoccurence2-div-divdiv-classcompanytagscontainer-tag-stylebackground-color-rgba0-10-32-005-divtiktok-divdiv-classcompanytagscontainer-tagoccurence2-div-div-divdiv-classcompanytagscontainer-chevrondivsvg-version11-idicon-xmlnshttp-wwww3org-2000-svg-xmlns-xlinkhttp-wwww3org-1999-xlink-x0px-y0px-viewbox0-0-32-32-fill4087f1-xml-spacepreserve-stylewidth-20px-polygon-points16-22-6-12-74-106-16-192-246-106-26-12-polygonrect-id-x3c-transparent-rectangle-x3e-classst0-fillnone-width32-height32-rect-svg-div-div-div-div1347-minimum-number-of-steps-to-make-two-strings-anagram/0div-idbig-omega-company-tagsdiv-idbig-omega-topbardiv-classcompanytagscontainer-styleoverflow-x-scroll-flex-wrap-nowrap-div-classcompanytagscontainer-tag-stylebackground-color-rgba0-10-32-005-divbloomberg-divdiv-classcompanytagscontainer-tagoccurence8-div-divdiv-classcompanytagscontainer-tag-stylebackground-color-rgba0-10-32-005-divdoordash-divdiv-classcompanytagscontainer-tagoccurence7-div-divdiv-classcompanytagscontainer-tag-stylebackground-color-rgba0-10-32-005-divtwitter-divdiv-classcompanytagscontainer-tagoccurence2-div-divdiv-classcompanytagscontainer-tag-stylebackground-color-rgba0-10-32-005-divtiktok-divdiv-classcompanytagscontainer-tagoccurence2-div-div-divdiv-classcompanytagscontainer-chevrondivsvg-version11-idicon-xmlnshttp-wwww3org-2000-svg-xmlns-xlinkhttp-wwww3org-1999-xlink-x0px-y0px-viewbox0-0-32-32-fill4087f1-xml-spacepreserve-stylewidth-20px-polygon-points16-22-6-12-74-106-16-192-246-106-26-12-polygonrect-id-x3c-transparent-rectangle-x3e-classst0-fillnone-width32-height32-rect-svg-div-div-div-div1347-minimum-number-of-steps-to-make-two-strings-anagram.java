@@ -4,13 +4,14 @@ class Solution {
         int count2[] = new int[26];
         
         int n = s.length();
-        
+        // Calculate the frequency
         for(int i=0; i<n; i++) {
             count1[s.charAt(i)-'a']++;
             count1[t.charAt(i)-'a']--;
         }
         int ans = 0;
-        
+        // Check which index is not zero i.e greater than 0.
+        // ideally this count would be same as -ve values.
         
         for(int i=0; i<26; i++) {
             if(count1[i]>0) {
