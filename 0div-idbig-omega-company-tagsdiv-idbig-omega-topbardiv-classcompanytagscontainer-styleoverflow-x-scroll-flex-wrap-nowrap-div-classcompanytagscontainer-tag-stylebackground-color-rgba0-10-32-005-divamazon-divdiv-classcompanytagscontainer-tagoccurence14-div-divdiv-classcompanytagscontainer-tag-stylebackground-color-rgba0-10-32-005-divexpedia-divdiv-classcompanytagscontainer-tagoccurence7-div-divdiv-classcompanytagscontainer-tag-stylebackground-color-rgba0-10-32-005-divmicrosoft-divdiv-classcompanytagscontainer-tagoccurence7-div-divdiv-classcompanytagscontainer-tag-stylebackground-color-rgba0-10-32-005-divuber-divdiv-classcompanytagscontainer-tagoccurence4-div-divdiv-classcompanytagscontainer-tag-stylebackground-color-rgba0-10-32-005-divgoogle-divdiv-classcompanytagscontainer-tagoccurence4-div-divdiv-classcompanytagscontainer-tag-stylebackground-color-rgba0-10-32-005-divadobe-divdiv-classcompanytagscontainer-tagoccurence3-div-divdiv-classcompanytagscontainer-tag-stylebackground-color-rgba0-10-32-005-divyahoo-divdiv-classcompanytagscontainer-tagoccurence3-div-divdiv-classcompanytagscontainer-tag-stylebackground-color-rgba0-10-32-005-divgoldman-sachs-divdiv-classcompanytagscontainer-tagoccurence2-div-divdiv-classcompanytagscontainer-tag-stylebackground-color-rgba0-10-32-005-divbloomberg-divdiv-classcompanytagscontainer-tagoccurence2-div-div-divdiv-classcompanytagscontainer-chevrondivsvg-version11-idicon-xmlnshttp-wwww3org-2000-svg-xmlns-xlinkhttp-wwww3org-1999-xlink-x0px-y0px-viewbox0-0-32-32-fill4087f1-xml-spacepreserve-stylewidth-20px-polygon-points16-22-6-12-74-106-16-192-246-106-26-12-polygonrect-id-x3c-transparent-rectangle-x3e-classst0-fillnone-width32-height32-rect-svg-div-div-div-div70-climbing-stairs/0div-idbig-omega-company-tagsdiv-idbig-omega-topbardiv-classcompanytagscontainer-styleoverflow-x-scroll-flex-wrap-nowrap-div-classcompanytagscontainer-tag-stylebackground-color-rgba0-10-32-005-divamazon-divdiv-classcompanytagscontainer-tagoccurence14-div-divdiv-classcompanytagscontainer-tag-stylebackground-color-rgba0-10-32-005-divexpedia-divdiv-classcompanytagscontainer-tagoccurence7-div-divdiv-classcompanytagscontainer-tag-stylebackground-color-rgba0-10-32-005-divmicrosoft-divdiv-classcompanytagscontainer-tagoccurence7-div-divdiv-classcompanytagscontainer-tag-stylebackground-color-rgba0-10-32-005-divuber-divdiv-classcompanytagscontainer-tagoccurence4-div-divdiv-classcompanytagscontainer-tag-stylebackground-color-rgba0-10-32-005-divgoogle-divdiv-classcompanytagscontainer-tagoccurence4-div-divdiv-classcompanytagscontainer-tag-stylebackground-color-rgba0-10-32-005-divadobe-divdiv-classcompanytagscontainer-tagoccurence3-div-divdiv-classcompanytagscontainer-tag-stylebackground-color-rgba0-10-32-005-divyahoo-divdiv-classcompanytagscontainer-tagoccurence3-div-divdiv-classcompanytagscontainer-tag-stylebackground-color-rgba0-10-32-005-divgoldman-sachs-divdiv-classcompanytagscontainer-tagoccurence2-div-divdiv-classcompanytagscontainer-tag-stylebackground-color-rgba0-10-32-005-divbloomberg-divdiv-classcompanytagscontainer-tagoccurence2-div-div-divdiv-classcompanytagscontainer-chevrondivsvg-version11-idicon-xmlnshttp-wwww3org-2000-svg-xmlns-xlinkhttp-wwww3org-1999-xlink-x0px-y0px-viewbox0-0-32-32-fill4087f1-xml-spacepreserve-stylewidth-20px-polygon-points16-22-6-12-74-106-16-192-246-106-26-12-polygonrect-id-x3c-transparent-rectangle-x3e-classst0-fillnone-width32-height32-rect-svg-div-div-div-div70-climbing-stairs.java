@@ -12,8 +12,5 @@ class Solution {
             second = total;
         }
         return second;
-      
-        
-        
     }
 }
