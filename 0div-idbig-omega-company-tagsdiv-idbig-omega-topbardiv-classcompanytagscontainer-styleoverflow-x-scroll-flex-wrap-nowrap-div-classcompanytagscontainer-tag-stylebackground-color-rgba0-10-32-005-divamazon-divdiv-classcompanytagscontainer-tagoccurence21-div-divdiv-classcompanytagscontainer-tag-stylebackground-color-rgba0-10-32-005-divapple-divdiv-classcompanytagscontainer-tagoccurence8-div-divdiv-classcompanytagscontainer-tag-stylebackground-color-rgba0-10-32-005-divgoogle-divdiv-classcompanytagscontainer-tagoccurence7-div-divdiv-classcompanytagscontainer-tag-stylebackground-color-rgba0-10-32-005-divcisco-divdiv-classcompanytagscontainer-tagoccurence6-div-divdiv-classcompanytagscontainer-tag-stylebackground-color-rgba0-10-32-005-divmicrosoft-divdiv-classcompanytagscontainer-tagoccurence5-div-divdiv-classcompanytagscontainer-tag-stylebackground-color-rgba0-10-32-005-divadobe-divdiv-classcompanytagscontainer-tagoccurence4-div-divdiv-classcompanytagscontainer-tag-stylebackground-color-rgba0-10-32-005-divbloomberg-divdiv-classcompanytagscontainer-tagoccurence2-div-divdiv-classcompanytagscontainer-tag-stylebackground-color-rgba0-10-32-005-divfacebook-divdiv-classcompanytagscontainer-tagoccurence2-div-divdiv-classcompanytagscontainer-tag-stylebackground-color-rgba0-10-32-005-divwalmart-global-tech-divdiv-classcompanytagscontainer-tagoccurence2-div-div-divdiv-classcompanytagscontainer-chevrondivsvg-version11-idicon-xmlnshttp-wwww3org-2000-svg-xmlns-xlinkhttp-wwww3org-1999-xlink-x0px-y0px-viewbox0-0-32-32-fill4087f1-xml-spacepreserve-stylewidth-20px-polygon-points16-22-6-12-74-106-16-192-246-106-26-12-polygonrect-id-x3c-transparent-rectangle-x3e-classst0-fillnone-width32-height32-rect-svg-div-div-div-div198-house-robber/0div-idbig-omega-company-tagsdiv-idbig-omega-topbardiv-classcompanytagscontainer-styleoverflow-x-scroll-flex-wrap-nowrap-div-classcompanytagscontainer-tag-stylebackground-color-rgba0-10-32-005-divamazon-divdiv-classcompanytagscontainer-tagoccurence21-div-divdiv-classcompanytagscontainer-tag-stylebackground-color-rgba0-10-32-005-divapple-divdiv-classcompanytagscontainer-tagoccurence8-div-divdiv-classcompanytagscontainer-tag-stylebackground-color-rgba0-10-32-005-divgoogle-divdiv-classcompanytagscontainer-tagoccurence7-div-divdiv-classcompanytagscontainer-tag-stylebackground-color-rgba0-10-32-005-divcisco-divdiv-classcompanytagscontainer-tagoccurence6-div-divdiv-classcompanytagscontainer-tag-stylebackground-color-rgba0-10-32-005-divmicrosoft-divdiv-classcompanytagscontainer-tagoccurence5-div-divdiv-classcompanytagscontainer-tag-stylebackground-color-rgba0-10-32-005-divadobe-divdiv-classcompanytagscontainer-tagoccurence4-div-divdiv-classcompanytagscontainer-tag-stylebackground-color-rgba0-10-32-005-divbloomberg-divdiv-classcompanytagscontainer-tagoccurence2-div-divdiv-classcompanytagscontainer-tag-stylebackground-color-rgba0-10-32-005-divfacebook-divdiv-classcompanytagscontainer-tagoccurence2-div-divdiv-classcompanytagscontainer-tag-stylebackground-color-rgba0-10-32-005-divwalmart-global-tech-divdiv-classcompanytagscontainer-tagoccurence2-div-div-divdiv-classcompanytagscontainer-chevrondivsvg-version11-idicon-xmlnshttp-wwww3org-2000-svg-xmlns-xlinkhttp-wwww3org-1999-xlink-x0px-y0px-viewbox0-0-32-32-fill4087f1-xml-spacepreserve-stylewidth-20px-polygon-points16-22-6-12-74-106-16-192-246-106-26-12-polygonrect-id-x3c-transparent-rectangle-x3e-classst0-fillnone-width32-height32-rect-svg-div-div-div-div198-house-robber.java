@@ -5,10 +5,11 @@ class Solution {
             return nums[0];
         }
         int dp[] = new int[nums.length];
+        dp[0] = nums[0];
        // Arrays.fill(dp, -1);
         //return helper(nums, 0, dp);   
         
-        for(int i=0; i<n; i++) {
+       /* for(int i=0; i<n; i++) {
             if(i-3>-1) {
                dp[i] = nums[i] + Math.max(dp[i-2], dp[i-3]);
             } else if(i-2>-1) {
@@ -16,8 +17,18 @@ class Solution {
             } else {
                 dp[i] = nums[i]; 
             }
+        }*/
+        
+        for(int i=1; i<n; i++) {
+            if(i-2>-1) {
+                dp[i] = Math.max(dp[i-1], nums[i] + dp[i-2]);
+            } else {
+                dp[i] = Math.max(dp[i-1], nums[i]);
+            }
         }
-        return Math.max(dp[n-2], dp[n-1]);
+        //return Math.max(dp[n-2], dp[n-1]);
+        
+        return dp[n-1];
     }
     
     int helper(int nums[], int i, int dp[]) {
