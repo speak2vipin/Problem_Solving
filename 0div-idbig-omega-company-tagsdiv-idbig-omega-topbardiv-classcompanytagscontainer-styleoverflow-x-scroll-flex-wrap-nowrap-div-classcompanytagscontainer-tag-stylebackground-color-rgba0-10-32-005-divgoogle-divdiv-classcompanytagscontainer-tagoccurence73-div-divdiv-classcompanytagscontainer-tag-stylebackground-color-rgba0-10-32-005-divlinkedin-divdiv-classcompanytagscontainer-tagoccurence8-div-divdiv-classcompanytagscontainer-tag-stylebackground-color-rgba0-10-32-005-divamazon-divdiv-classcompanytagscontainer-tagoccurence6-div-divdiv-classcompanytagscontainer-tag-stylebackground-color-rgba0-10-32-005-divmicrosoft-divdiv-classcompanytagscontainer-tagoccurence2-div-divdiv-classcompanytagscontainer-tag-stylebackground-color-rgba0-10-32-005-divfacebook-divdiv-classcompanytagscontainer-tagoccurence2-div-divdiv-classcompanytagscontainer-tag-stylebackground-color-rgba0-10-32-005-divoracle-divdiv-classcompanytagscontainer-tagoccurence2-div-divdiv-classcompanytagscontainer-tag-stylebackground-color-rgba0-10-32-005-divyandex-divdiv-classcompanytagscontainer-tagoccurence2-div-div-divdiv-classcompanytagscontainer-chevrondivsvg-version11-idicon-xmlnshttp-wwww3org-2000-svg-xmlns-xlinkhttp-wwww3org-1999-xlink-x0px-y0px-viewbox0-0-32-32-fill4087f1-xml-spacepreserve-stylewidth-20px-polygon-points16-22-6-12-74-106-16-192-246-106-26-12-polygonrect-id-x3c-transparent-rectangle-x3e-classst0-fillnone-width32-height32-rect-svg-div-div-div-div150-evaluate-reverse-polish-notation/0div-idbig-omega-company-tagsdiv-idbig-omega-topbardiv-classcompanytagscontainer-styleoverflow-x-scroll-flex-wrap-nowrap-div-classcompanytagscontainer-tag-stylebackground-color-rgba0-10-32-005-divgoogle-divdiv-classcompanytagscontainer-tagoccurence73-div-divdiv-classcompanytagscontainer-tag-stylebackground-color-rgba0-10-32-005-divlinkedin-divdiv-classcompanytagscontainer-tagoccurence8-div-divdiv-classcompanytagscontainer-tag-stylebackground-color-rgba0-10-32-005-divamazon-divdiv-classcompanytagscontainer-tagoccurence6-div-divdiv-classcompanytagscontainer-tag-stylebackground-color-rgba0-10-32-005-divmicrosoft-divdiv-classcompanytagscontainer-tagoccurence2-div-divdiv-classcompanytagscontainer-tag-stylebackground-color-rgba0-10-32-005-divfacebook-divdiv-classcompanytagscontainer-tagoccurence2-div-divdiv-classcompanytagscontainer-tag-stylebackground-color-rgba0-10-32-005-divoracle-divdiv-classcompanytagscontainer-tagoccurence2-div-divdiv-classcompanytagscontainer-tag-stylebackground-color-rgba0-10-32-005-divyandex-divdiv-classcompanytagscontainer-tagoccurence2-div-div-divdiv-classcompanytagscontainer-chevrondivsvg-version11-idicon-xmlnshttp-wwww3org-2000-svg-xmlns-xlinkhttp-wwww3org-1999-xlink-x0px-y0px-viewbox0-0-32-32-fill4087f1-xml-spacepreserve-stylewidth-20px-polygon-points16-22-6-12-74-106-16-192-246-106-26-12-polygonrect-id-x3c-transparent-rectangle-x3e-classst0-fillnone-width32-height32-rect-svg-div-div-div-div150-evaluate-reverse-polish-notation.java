@@ -1,6 +1,5 @@
 class Solution {
     public int evalRPN(String[] tokens) {
-        
         Set<String> set = new HashSet<>();
         set.add("/");
         set.add("+");
@@ -15,37 +14,39 @@ class Solution {
                 st.push(tokens[i]);
             } else {   
             	String operand1 = tokens[i];
-                while(!st.isEmpty() && !set.contains(st.peek())) {
-                	String operand2 = st.pop();
-                    String Operator = st.pop();
-                    String value = "";
-                    switch(Operator) {
-                        case "+": value += 
-                        Integer.parseInt(operand1) + Integer.parseInt(operand2); 
-                            break;
-                        case "-": value +=  
-                        Integer.parseInt(operand1) - Integer.parseInt(operand2); 
-                            break;
-                        case "*":
-                            value +=  
-                        Integer.parseInt(operand1) * Integer.parseInt(operand2);
-                            break;
-                        case "/":
-                            value +=  
-                    (Integer.parseInt(operand1) / Integer.parseInt(operand2));
-                            break;
-                        default:
-                            break;
-                    }
-                    operand1 = value;
-                    
-                }
+                operand1 = mathOperations(set, st, operand1);
                 st.push(operand1);
-                
             }
         }
         return Integer.parseInt(st.pop());
-        
-    
     }
+
+	private String mathOperations(Set<String> set, Stack<String> st, String operand1) {
+		while(!st.isEmpty() && !set.contains(st.peek())) {
+			String operand2 = st.pop();
+		    String Operator = st.pop();
+		    String value = "";
+		    switch(Operator) {
+		        case "+": value += 
+		        Integer.parseInt(operand1) + Integer.parseInt(operand2); 
+		            break;
+		        case "-": value +=  
+		        Integer.parseInt(operand1) - Integer.parseInt(operand2); 
+		            break;
+		        case "*":
+		            value +=  
+		        Integer.parseInt(operand1) * Integer.parseInt(operand2);
+		            break;
+		        case "/":
+		            value +=  
+		    (Integer.parseInt(operand1) / Integer.parseInt(operand2));
+		            break;
+		        default:
+		            break;
+		    }
+		    operand1 = value;
+		    
+		}
+		return operand1;
+	}
 }
