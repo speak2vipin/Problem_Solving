@@ -12,6 +12,7 @@ class Solution {
             }
             st.push(i);
         }
+        st.clear();
         return res;
     }
 }
