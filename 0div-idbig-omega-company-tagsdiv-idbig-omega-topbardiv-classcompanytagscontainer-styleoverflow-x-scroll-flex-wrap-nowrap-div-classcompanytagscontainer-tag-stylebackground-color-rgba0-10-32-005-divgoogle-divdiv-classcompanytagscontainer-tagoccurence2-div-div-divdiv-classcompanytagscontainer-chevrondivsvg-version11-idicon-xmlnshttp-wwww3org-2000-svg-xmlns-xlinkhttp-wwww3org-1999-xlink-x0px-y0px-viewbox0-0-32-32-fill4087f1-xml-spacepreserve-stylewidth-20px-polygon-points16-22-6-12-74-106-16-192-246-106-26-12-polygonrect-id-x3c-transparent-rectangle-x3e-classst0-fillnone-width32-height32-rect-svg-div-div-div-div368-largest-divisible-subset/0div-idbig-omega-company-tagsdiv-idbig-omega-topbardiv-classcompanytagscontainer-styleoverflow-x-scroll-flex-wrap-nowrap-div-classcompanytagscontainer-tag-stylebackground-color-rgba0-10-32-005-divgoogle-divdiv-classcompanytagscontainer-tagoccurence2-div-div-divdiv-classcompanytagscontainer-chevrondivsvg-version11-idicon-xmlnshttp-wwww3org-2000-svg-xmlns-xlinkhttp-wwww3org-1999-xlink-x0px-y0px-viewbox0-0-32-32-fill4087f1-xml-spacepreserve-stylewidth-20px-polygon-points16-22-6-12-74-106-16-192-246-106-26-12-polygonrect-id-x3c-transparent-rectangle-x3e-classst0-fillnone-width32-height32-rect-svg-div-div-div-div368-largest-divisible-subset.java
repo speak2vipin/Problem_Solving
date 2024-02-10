@@ -1,4 +1,11 @@
 class Solution {
+    // https://youtu.be/Wv6DlL0Sawg
+    // Sort array so that we can derive current value from previous value
+    // If 3 is divisble by 1 and 6 is divisible by 3 
+    // then it would be divisible by 1 as well
+    // Find longest increasing subsequence where nums[j] % nums[i] where j<i
+    // Leep track of max index which would help us in evaluating subset
+    
     public List<Integer> largestDivisibleSubset(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
