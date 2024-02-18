@@ -6,8 +6,10 @@ class Solution {
           (x,y)->x[1]==y[1] ? (int)(x[2]-y[2]) : (int)(x[1]-y[1]));
       PriorityQueue<Integer> unused = new PriorityQueue<Integer>();
       
-      Arrays.sort(meetings, (x,y)->x[0]==y[0] ? x[1]-y[1] : x[0]-y[0]);
+      //Arrays.sort(meetings, (x,y)->x[0]==y[0] ? x[1]-y[1] : x[0]-y[0]);
 //Arrays.sort(meetings, (a, b) -> a[0] != b[0] ? Integer.compare(a[0], b[0]) : //Integer.compare(a[1], b[1]));
+        
+        Arrays.sort(meetings, (x,y)->x[0]-y[0]);
       
         for(int i=0; i<n; i++) {
           unused.offer(i);
