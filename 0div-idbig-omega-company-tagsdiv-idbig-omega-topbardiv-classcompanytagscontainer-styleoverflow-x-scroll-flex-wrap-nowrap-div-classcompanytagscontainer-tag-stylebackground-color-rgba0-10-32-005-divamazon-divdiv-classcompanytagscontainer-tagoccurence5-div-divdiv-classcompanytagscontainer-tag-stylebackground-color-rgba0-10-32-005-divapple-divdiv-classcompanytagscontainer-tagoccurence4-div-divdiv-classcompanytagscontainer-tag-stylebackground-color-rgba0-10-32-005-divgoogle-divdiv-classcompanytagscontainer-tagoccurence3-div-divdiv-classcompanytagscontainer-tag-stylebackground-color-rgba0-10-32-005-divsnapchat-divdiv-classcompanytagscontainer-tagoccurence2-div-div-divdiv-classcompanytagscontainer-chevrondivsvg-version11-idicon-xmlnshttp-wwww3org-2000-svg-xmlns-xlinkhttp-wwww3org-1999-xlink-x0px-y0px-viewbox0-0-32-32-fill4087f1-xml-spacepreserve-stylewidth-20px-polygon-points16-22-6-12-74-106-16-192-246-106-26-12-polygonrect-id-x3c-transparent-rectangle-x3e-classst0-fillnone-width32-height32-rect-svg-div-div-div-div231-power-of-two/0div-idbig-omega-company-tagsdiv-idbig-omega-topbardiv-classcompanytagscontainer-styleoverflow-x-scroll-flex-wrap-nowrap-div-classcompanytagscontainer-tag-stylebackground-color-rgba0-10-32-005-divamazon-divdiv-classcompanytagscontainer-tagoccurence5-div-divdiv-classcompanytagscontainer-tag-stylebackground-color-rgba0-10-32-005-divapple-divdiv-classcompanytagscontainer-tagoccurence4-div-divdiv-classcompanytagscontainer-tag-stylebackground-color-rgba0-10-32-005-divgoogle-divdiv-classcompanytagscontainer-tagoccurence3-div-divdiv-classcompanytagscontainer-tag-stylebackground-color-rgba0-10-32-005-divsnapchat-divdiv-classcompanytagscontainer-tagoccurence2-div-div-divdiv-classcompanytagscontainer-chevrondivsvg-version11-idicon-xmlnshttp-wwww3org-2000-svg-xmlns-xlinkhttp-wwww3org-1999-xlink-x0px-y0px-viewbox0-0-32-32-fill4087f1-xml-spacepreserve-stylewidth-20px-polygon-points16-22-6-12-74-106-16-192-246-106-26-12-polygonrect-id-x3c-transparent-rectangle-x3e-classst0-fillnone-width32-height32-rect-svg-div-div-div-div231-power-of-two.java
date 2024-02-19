@@ -1,6 +1,6 @@
 class Solution {
     public boolean isPowerOfTwo(int n) {
-        if(n==-1*Math.pow(2,31)) {
+        if(n<0) {
             return false;
         }
         int count = 0;
