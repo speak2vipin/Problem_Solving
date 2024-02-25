@@ -1,6 +1,6 @@
 class Solution {
     public static List<Integer> findAllPeople(int n, int[][] meetings, int firstPerson) {
-		//Arrays.sort(meetings, (x, y) -> (x[2] - y[2]));
+		
 		Map<Integer, ArrayList<int[]>> adj = new HashMap<>();
 		for (int meet[] : meetings) {
 			adj.computeIfAbsent(meet[0], val -> new ArrayList<int[]>()).add(new int[] { meet[1], meet[2] });
@@ -19,7 +19,7 @@ class Solution {
             if(vst[person]) {
                 continue;
             }
-            //res.add(person);
+            res.add(person);
             vst[person] = true;
 			if (adj.get(person) != null) {
 				for (int[] x : adj.get(person)) {
@@ -30,11 +30,11 @@ class Solution {
 			}
 		}
                                              
-         for(int i = 0; i<n; i++) {
-             if(vst[i]) {
-                 res.add(i);
-             }
-         }                                    
+         //for(int i = 0; i<n; i++) {
+           //  if(vst[i]) {
+             //    res.add(i);
+             //}
+         //}                                    
 		return res;
 
 	}
