@@ -11,7 +11,7 @@ class Solution {
 		
 		pq.offer(new int[] {firstPerson, 0});
         pq.offer(new int[]{0, 0});
-        boolean vst[] = new boolean[n];
+        
 		while (!pq.isEmpty()) {
 			int top[] = pq.poll();
             int time = top[1];
@@ -20,10 +20,10 @@ class Solution {
                 continue;
             }
             res.add(person);
-            vst[person] = true;
+            
 			if (adj.get(person) != null) {
 				for (int[] x : adj.get(person)) {
-					if (x[1] >= time && !vst[x[0]]) {
+					if (x[1] >= time && !res.contains(x[0])) {
 						pq.offer(new int[] { x[0], x[1] });
 					}
 				}
