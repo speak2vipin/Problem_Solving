@@ -6,13 +6,13 @@ class Solution {
         int i = 0;
         int j = tokens.length-1;
         int total = 0;
-        while(i<tokens.length) {
-            total += tokens[i++];
-        }
-        if(total<=power) {
-            return tokens.length;
-        }
-         i = 0;
+        //while(i<tokens.length) {
+          //  total += tokens[i++];
+        //}
+        //if(total<=power) {
+          //  return tokens.length;
+        //}
+         //i = 0;
         while(i<=j) {
             if(power<tokens[i]) {
                 if(i==j || count==0) {
