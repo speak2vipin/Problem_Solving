@@ -12,21 +12,32 @@ class Solution {
                    result++; 
                 }
             } else {
-                if(plants[i]<=tempCapacityA) {
+                /*if(plants[i]<=tempCapacityA) {
                     tempCapacityA -= plants[i];
                 } else {
                     result++;
                     tempCapacityA = capacityA;
                     tempCapacityA -= plants[i];
 
+                }*/
+                if(plants[i]>tempCapacityA) {
+                    result++;
+                    tempCapacityA = capacityA;
                 }
-                if(plants[j]<=tempCapacityB) {
+                tempCapacityA -= plants[i];
+                
+                /*if(plants[j]<=tempCapacityB) {
                     tempCapacityB -= plants[j];
                 } else {
                     result++;
                     tempCapacityB = capacityB;
                     tempCapacityB -= plants[j];
+                }*/
+                if(plants[j]>tempCapacityB) {
+                    result++;
+                    tempCapacityB = capacityB;
                 }
+                tempCapacityB -= plants[j];
             }
             i++;
             j--;
