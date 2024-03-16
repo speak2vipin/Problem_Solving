@@ -5,11 +5,7 @@ class Solution {
         int total = 0;
         int len = 0;
         for(int i=0; i<n; i++) {
-            if(nums[i]==0) {
-                total += -1;
-            } else {
-                total += 1;
-            }
+            total += nums[i]==0?-1:1;
             if(total==0) {
                 len = Math.max(len, i+1);
             }
