@@ -1,20 +1,20 @@
 class Solution {
-    public int maxProductOptimize(int[] nums) {
-        int max_product = nums[0];
-        int temp_product = nums[0];
+    public int maxProduct(int[] nums) {
         int n = nums.length;
-        for(int i=1; i<n; i++) {
-            if(temp_product*nums[i]>=temp_product) {
-                temp_product = Math.max(temp_product*nums[i], nums[i]);
-            } else {
-                temp_product = nums[i];
-            }
-            max_product = Math.max(max_product, temp_product);
+        int leftProduct = 1;
+        int rightProduct = 1;
+        int maxProduct = Integer.MIN_VALUE;
+        for(int i=0; i<n; i++) {
+            leftProduct = leftProduct==0 ? 1 : leftProduct;
+            rightProduct = rightProduct==0 ? 1 : rightProduct;
+            leftProduct = nums[i] * leftProduct;
+            rightProduct = nums[n-1-i] * rightProduct;
+            maxProduct = Math.max(maxProduct, Math.max(leftProduct, rightProduct));
         }
-        return max_product;
+        return maxProduct;
     }
     
-    public int maxProduct(int[] nums) {
+    public int maxProductBruteforce(int[] nums) {
         int n = nums.length;
         int maxProduct = nums[0];
         for(int i=0; i<n; i++) {
