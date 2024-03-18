@@ -10,7 +10,12 @@ class Solution {
         }
         
         int ans = Integer.MAX_VALUE;
-        //Arrays.sort(freq);
+        
+        // Here every freq will reduced to make |freq(word[i]) - freq(word[j])| <= k true
+        // Simply consider every freq as smallest
+        // If x>y then all y needs to be deleted
+        // Or if y-k<=k, no changes required
+        // else reduced the minimum character
         for(int x : freq) {
             int count = 0;
             for(int y : freq) {
