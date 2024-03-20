@@ -11,19 +11,23 @@
 class Solution {
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
         ListNode head = list1;
-       
-        int count = 1;    
+        int count = 1;  
+        // Find insertion point
         while(count<a) {
             head = head.next;
             count++;
         }
+        // Find the last node of a-b interval
         ListNode end = head;
         while(count<b+1) {
             end = end.next;
             count++;
         }
+        // Insert list2 head
         head.next = list2;
         ListNode end2 = list2;
+        
+        // Find the end node of list2 so that we can make connection
         while(end2.next!=null) {
             end2 = end2.next;
         }
