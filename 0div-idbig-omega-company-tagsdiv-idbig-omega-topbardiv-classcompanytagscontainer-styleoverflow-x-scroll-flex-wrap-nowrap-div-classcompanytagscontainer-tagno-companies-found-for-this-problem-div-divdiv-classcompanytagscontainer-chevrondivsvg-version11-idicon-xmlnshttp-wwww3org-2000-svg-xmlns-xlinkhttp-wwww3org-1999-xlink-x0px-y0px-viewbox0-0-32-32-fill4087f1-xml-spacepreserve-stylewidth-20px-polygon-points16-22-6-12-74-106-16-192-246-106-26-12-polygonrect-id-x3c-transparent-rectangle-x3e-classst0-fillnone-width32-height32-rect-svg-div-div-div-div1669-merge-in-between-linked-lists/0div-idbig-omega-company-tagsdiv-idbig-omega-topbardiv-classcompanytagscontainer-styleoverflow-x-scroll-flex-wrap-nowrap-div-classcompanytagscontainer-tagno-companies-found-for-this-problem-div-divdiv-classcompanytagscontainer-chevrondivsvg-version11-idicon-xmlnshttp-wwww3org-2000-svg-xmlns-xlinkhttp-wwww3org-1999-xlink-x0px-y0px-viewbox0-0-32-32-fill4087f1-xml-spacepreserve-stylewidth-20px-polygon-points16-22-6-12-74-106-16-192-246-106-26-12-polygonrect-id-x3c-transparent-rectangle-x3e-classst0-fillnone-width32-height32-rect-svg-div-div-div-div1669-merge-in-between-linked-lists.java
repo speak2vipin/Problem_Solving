@@ -10,11 +10,11 @@
  */
 class Solution {
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
-        /*ListNode head = list1;
+        ListNode head = list1;
        
         int count = 1;    
         while(count<a) {
-            head = list1.next;
+            head = head.next;
             count++;
         }
         ListNode end = head;
@@ -28,8 +28,8 @@ class Solution {
             end2 = end2.next;
         }
         end2.next = end.next;
-        return list1;*/
-        HashMap<Integer, ListNode> map = new HashMap<>();
+        return list1;
+        /*HashMap<Integer, ListNode> map = new HashMap<>();
         ListNode head = list1;
         int count = 0;
         while(head!=null) {
@@ -42,7 +42,6 @@ class Solution {
             end = end.next;
         }
         end.next = map.get(b).next;
-        return list1;
-        
+        return list1;*/
     }
 }
