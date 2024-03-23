@@ -29,5 +29,6 @@ class Solution {
             j--;
         }
         temp.next = null;
+        l.clear();
     }
 }
