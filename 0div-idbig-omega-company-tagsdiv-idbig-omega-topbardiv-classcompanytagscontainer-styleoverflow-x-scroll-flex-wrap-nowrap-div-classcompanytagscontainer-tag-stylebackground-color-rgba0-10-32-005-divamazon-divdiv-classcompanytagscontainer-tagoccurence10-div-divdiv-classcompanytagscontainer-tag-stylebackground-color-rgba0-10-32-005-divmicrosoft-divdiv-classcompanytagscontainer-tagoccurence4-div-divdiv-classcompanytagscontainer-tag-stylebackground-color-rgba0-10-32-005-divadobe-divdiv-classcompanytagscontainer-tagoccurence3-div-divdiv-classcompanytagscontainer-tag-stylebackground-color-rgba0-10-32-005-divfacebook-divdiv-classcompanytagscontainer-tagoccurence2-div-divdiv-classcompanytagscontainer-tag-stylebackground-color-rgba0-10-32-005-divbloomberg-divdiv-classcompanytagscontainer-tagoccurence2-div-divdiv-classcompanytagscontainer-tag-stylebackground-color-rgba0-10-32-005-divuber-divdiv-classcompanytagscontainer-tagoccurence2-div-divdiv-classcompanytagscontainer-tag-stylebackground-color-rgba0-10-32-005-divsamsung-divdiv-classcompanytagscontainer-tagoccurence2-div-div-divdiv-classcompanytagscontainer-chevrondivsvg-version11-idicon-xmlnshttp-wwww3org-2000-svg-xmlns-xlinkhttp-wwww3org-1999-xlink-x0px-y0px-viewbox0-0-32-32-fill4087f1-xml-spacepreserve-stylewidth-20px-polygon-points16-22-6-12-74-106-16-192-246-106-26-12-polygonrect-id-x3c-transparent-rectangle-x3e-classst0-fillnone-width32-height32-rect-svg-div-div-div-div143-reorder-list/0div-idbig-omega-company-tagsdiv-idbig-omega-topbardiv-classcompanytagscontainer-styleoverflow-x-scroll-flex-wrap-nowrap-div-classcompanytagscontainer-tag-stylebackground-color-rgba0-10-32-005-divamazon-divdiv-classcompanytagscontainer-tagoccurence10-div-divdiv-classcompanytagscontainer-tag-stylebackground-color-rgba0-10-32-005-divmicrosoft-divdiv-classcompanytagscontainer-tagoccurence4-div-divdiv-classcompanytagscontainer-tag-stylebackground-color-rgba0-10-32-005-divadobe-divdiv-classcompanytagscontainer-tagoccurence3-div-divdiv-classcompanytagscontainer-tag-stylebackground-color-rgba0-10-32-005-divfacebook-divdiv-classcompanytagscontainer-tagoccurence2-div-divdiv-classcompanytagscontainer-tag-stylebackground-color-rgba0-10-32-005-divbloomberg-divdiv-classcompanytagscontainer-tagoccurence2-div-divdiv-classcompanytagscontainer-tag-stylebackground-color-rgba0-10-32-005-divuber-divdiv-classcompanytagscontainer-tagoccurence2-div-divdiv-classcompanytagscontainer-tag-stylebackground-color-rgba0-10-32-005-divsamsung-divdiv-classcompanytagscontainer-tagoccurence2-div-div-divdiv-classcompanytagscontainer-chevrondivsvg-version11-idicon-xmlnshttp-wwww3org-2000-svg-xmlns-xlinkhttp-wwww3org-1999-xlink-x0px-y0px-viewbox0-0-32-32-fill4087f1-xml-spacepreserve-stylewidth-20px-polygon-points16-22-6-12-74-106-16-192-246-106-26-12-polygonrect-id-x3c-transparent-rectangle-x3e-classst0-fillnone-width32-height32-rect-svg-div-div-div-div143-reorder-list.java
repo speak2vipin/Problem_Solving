@@ -9,7 +9,7 @@
  * }
  */
 class Solution {
-    public void reorderList(ListNode head) {
+    public void reorderListByHashMap(ListNode head) {
         ListNode temp = head;
         List<ListNode> l = new ArrayList<ListNode>();
         while(temp!=null) {
@@ -30,5 +30,41 @@ class Solution {
         }
         temp.next = null;
         l.clear();
+    }
+    
+    public void reorderList(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast!=null && fast.next!=null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        if(fast!=null) {
+            //ListNode common = slow;
+            slow = slow.next;
+            //common.next = null;
+        }
+        ListNode prev = null;
+        ListNode temp = null;
+        while(slow!=null) {
+            temp = slow;
+            slow = slow.next;
+            temp.next = prev;
+            prev = temp;
+        }
+        temp = head;
+        ListNode head1 = null;
+        ListNode head2 = null;
+        while(prev!=null && temp!=null) {
+            head1 = temp;
+            temp = temp.next;
+            head2 = prev;
+            prev = prev.next;
+            head1.next = head2;
+            head2.next = temp;
+        }
+        temp.next = null;
+        
     }
 }
