@@ -6,11 +6,17 @@ class Solution {
             slow = nums[slow];
             fast = nums[nums[fast]];
         }
-        int slow2 = 0;
-        while(slow2!=slow) {
-            slow2 = nums[slow2];
+        int start = 0;
+        while(start!=slow) {
+            start = nums[start];
             slow = nums[slow];
         }
-        return slow;
+        return start;
+        
     }
+        
+    
+    
+    
+     
 }
