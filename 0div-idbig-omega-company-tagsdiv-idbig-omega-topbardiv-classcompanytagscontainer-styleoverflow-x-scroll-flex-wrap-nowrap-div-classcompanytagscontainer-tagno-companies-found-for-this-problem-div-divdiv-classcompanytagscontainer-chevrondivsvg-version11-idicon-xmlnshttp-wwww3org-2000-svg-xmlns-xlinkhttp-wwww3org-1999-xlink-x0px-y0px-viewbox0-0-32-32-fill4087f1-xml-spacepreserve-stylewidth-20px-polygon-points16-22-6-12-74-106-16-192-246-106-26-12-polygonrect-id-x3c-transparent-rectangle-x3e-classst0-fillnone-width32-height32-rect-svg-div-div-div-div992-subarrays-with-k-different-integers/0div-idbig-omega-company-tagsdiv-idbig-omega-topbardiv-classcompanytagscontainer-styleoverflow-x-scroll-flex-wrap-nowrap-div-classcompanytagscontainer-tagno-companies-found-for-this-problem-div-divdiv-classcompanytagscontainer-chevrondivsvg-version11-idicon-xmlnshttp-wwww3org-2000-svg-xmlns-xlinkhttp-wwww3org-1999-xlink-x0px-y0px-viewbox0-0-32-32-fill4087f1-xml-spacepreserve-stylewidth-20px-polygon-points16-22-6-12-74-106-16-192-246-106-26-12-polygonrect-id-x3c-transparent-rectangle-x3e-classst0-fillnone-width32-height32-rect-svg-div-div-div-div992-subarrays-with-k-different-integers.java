@@ -1,61 +1,24 @@
 class Solution {
-    public int subarraysWithKDistinct(int[] A, int K) {
-        Map<Integer, Integer> map1 = new HashMap<>();
-        Map<Integer, Integer> map2 = new HashMap<>();
-        
-        int ans = 0, left1 = 0, left2 = 0;
-
-        for (int right = 0; right < A.length; ++right) {
-            int x = A[right];
-            //window1.add(x);
-            //window2.add(x);
-            map1.put(x, map1.getOrDefault(x, 0)+1);
-            map2.put(x, map2.getOrDefault(x, 0)+1);
-
-            while (map1.size() > K) {
-                map1.put(A[left1], map1.get(A[left1])-1);
-                if(map1.get(A[left1])==0) {
-                    map1.remove(A[left1]);
+    public int subarraysWithKDistinct(int[] nums, int k) {
+        return slidingWindowAtMostTarget(nums, k) - slidingWindowAtMostTarget(nums, k-1);
+    }
+    
+    int slidingWindowAtMostTarget(int nums[], int target) {
+        Map<Integer, Integer> freq = new HashMap<>();
+        int n = nums.length;
+        int start = 0;
+        int ans = 0;
+        for(int end=0; end<n; end++) {
+            freq.put(nums[end], freq.getOrDefault(nums[end], 0)+1);
+            while(freq.size()>target) {
+                freq.put(nums[start], freq.get(nums[start])-1);
+                if(freq.get(nums[start])==0) {
+                    freq.remove(nums[start]);
                 }
-                left1++;
+                start++;
             }
-            while (map2.size() >= K) {
-                map2.put(A[left2], map2.get(A[left2])-1);
-                if(map2.get(A[left2])==0) {
-                    map2.remove(A[left2]);
-                }
-                left2++;
-            }
-
-            ans += left2 - left1;
+            ans += end-start+1;
         }
-
         return ans;
-    }
-}
-
-class Window {
-    Map<Integer, Integer> count;
-    int nonzero;
-
-    Window() {
-        count = new HashMap();
-        nonzero = 0;
-    }
-
-    void add(int x) {
-        count.put(x, count.getOrDefault(x, 0) + 1);
-        if (count.get(x) == 1)
-            nonzero++;
-    }
-
-    void remove(int x) {
-        count.put(x, count.get(x) - 1);
-        if (count.get(x) == 0)
-            nonzero--;
-    }
-
-    int different() {
-        return nonzero;
     }
 }
