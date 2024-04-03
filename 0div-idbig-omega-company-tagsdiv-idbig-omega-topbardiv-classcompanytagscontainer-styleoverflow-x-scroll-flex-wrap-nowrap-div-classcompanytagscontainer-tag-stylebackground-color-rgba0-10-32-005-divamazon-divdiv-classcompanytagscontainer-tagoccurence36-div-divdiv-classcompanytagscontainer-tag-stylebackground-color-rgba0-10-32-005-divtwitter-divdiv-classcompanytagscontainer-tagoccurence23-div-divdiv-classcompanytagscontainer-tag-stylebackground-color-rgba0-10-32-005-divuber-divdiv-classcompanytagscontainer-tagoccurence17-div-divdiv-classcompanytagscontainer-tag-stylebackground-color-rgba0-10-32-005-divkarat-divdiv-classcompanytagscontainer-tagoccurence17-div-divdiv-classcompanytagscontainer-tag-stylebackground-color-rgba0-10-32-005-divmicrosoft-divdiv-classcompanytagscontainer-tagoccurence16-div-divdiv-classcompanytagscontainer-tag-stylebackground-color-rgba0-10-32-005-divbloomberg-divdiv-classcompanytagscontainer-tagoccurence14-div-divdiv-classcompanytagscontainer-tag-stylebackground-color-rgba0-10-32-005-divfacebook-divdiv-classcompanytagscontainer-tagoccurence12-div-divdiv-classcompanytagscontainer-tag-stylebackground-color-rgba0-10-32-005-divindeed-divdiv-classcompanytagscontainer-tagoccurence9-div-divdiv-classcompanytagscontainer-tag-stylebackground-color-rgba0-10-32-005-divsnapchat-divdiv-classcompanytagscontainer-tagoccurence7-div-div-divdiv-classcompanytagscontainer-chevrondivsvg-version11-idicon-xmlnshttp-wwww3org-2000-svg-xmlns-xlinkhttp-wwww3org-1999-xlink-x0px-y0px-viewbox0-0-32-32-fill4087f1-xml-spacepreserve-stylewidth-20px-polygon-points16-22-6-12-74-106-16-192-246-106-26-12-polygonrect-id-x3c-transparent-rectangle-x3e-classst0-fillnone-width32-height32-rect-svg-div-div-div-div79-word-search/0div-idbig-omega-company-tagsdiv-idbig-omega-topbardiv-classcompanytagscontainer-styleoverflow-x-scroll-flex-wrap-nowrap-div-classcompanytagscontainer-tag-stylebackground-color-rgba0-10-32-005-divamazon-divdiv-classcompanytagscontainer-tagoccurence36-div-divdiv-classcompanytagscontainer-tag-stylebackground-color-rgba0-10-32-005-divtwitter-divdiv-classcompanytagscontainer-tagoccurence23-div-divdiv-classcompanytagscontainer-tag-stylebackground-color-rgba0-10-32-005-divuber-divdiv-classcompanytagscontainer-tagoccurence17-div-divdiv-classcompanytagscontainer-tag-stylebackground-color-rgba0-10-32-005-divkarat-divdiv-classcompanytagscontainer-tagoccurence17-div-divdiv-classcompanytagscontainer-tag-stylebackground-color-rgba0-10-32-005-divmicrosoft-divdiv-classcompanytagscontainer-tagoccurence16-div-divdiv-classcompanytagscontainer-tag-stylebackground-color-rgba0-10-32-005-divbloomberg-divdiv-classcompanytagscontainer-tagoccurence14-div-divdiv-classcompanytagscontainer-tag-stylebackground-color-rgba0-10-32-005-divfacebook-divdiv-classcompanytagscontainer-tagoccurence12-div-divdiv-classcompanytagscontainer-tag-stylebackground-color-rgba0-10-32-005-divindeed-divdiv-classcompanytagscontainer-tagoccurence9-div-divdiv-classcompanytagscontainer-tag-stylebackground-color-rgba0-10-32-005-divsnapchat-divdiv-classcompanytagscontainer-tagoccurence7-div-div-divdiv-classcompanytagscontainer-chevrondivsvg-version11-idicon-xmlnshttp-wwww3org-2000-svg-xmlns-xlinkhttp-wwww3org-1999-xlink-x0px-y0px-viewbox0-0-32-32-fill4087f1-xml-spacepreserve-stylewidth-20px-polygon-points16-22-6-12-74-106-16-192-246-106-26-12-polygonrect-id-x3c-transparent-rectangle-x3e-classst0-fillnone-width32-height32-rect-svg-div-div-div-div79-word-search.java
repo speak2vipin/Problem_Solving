@@ -28,9 +28,6 @@ class Solution {
             int dy = j + dir[k][1];
             if(dx>-1 && dx<n && dy>-1 && dy<m && !visit[dx][dy] && 
                         board[dx][dy]==word.charAt(index+1)) {
-                if(index+1==word.length()-1) {
-                    return true;
-                }
                 visit[dx][dy] = true;
                 if(dfs(dx, dy, board, word, visit, index+1)) {
                     return true;
