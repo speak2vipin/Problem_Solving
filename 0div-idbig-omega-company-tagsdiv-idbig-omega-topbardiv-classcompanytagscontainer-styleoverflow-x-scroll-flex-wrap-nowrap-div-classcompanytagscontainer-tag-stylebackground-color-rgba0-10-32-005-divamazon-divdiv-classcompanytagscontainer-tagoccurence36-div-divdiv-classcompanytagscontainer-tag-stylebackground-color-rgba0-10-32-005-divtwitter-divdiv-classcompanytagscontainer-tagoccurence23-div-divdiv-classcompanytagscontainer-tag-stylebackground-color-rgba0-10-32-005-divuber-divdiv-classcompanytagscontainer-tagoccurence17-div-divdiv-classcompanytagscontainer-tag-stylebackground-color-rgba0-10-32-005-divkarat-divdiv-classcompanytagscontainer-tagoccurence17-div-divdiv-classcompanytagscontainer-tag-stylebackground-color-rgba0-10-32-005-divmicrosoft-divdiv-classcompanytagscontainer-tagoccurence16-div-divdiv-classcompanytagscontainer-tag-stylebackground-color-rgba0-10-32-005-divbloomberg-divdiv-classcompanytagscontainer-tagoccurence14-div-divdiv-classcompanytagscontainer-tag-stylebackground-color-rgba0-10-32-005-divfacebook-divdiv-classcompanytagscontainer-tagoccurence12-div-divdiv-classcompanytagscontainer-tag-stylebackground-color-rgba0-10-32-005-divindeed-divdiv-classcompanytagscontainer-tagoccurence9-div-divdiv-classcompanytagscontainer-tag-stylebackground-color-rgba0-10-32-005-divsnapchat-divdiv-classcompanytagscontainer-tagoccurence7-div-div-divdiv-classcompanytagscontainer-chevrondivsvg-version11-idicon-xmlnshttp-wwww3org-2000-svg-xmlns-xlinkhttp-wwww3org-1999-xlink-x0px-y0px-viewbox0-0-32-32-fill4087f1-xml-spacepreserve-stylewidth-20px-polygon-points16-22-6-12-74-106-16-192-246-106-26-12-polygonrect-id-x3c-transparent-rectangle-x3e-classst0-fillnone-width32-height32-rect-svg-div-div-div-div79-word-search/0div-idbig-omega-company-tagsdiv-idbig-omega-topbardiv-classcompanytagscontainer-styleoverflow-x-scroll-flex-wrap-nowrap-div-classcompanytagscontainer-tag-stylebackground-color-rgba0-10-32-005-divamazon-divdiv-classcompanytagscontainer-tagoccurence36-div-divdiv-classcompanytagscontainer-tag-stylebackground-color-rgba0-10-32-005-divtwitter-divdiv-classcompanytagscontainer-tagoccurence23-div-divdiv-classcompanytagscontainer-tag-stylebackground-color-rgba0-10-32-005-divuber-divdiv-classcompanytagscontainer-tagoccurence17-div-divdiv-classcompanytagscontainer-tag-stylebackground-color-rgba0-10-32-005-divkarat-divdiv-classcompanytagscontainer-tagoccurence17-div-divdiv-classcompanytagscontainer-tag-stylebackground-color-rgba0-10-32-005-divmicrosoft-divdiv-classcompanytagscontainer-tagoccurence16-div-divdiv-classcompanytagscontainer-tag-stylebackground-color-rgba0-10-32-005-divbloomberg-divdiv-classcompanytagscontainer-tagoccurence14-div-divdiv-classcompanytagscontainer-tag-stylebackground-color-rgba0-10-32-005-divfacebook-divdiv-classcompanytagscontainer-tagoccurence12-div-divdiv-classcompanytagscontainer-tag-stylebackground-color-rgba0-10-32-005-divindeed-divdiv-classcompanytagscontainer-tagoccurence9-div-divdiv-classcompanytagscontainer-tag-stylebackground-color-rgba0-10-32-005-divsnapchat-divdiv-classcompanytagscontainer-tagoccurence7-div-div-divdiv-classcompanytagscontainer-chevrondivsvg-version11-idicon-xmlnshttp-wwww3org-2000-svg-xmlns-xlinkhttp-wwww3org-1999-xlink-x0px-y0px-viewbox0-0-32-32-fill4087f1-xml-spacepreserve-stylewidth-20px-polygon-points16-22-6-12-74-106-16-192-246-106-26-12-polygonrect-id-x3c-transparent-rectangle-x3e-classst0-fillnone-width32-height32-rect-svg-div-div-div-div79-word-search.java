@@ -1,5 +1,4 @@
 class Solution {
-    //boolean isExist = false;
     
     public boolean exist(char[][] board, String word) {
         for(int i=0; i<board.length; i++) {
@@ -20,7 +19,6 @@ class Solution {
         int n = board.length;
         int m = board[0].length;
         if(index==word.length()-1) {
-            //isExist = true;
             return true;
         }
         
@@ -31,7 +29,6 @@ class Solution {
             if(dx>-1 && dx<n && dy>-1 && dy<m && !visit[dx][dy] && 
                         board[dx][dy]==word.charAt(index+1)) {
                 if(index+1==word.length()-1) {
-                    //isExist = true;
                     return true;
                 }
                 visit[dx][dy] = true;
