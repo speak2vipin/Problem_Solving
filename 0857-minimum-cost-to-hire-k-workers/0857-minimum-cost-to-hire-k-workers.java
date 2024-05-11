@@ -5,6 +5,11 @@ class Solution {
         int n = quality.length;
         Integer currentTotalQuality = 0;
         
+        // This is needed only to maintain the condition
+            // a) Wages have to be in proportion of quality
+            // b) Every worker should have minimum defined wage
+        // So if we get wage/quality in increasing order then we can met both the conytsraint
+        
         for(int i=0; i<n; i++) {
             wageToQualityRatio.add(new Pair<>((double)wage[i]/quality[i], quality[i]));
         }
