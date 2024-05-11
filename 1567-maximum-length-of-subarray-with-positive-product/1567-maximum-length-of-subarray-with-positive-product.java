@@ -1,7 +1,12 @@
 class Solution {
+    
+    // Logic is simple if 
+        // negative numbers are even then i-lastZero
+        // else i-lastNegative (Exclude lastNegative number)
+    // If nums[i]==0
+        //then reset lastZero, lastNegative and countNegative so that we can't make product zero.
     public int getMaxLen(int[] nums) {
         int n = nums.length;
-        //int len = 0;
         int countNegative = 0;
         int lastZero = -1;
         int lastNegative = -1;
