@@ -1,5 +1,9 @@
 class Solution {
     public int matrixScore(int[][] grid) {
+        // Focus on the most significant bit to make it 1
+        // then focus on every column and check if we have more 1's then 0's or not
+        // if yes then just take it in sum
+        // else take m-one to score.
         int m = grid.length;
         int n = grid[0].length;
         int score = 0;
