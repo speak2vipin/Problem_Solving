@@ -13,6 +13,12 @@
  *     }
  * }
  */
+// We will be processing from the leaf node to root
+// Extra coin would processed to parent node
+    // So node.val-1+left+right
+// moves would be, whatever is the balance that need to processed so left + right`
+// and extra nodes would be processed one step each
+
 class Solution {
     int moves = 0;
     public int distributeCoins(TreeNode root) {
@@ -29,6 +35,7 @@ class Solution {
         
         moves += Math.abs(left) + Math.abs(right);
         
+        // 
         return root.val-1+left+right;
     }
 }
