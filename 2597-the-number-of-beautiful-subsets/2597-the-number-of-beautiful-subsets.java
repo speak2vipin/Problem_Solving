@@ -8,7 +8,6 @@ class Solution {
         findSubsets(nums, 0, new ArrayList<>(), k);
         int count = 0;
         for(List<Integer> subset : subsets) {
-            //System.out.println(subset);
             if(isBeautiful(subset, k)) {
                 count++;
             }
@@ -18,7 +17,6 @@ class Solution {
     
     boolean isBeautiful(List<Integer> subset, int k) {
         for(int i=subset.size()-1; i>-1; i--) {
-            //System.out.println(subset);
             if(subset.contains(subset.get(i)-k)){
                 return false;
             }
@@ -29,7 +27,6 @@ class Solution {
     void findSubsets(int nums[], int index, List<Integer> subset, int k) {
         if(index==nums.length) {
             if(!subset.isEmpty()) {
-                //System.out.println(subset);
                 subsets.add(new ArrayList<>(subset));
             }
             return;
