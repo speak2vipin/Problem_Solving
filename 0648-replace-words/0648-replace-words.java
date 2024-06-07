@@ -18,16 +18,16 @@ class Solution {
     
     String traverse(String s) {
         Trie temp = root;
-        String rel = "";
+        
         for(int i=0; i<s.length(); i++) {
             int index = s.charAt(i)-'a';
             if(temp.trie[index]==null) {
                 return s;
             } else {
-                rel += s.charAt(i);
+                
                 temp = temp.trie[index];
                 if(temp.isDone) {
-                    return rel;
+                    return s.substring(0, i+1);
                 }
             }
         }
