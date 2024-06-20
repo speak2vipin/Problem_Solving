@@ -3,8 +3,10 @@ class Solution {
         int ans = 0;
         int n = position.length;
         Arrays.sort(position);
-        int low = 0;
-        int high = (int)Math.ceil(position[n-1]/(m-1.0));
+        int low = 0; // Minimum difference between two basket
+        
+        int high = (int)Math.ceil(position[n-1]/(m-1.0)); // Maximum difference between two basket
+        // Why m-1.0 because 3 basket required gap of position[n-1]/2 
         while(low<=high) {
             int mid = high - (high-low)/2;
             if(canPlaceBalls(mid, position, m)) {
