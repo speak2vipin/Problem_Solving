@@ -16,12 +16,15 @@ class Solution {
                 colcount++;
             }
         }
+        
         while(x>-1) {
             minCost += colcount * horizontalCut[x--];
         }
+        
         while(y>-1) {
             minCost += rowcount * verticalCut[y--];
-        } 
+        }
+        
         return minCost;
     }
     
