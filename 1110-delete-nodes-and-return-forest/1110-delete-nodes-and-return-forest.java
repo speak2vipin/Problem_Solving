@@ -23,10 +23,12 @@ class Solution {
         for(int val : to_delete) {
             toBeDelete.add(val);
         }
-        postorder(root);
+        /*postorder(root);
         if(!toBeDelete.contains(root.val)) {
             ans.add(root);
-        }
+        }*/
+        
+        useLevelOrderTraversal(root);
         
         return ans;
     }
@@ -48,7 +50,37 @@ class Solution {
             return null;
         }
         return root;
-        
+    }
+    
+    void useLevelOrderTraversal(TreeNode root) {
+        Queue<TreeNode> qe = new LinkedList<>();
+        qe.offer(root);
+        while(!qe.isEmpty()) {
+            TreeNode top = qe.poll();
+            if(top.left!=null) {
+                qe.offer(top.left);
+                if(toBeDelete.contains(top.left.val)) {
+                    top.left = null;
+                }
+            }
+            if(top.right!=null) {
+                qe.offer(top.right);
+                if(toBeDelete.contains(top.right.val)) {
+                    top.right = null;
+                }
+            }
+            if(toBeDelete.contains(top.val)) {
+                if(top.left!=null) {
+                    ans.add(top.left);
+                }
+                if(top.right!=null) {
+                    ans.add(top.right);
+                }
+            }
+        }
+        if(!toBeDelete.contains(root.val)) {
+            ans.add(root);
+        }
     }
     
     
