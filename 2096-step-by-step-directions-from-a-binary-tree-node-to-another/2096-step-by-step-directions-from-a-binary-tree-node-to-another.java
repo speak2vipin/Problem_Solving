@@ -16,62 +16,53 @@
 class Solution {
 
     public String getDirections(TreeNode root, int startValue, int destValue) {
-        StringBuilder startPath = new StringBuilder();
-        StringBuilder destPath = new StringBuilder();
-
-        // Find paths from root to start and destination nodes
-        findPath(root, startValue, startPath);
-        findPath(root, destValue, destPath);
-
-        StringBuilder directions = new StringBuilder();
-        int commonPathLength = 0;
-
-        // Find the length of the common path
-        while (
-            commonPathLength < startPath.length() &&
-            commonPathLength < destPath.length() &&
-            startPath.charAt(commonPathLength) ==
-            destPath.charAt(commonPathLength)
-        ) {
-            commonPathLength++;
+        StringBuilder start = new StringBuilder();
+        StringBuilder dest = new StringBuilder();
+        
+        traverse(root, startValue, start);
+        traverse(root, destValue, dest);
+        System.out.println(start);
+        System.out.println(dest);
+        
+        int i = 0, j = 0, commmonPath = 0;
+        while(commmonPath<start.length() 
+              && commmonPath<dest.length() 
+              && start.charAt(commmonPath)==dest.charAt(commmonPath)) {
+            commmonPath++;
         }
-
-        // Add "U" for each step to go up from start to common ancestor
-        for (int i = 0; i < startPath.length() - commonPathLength; i++) {
-            directions.append("U");
+        
+        String response = "";
+        for(i=commmonPath ; i<start.length(); i++) {
+            response += "U"; 
         }
-
-        // Add directions from common ancestor to destination
-        for (int i = commonPathLength; i < destPath.length(); i++) {
-            directions.append(destPath.charAt(i));
+        
+        for(j=commmonPath; j<dest.length(); j++) {
+            response += dest.charAt(j);
         }
-
-        return directions.toString();
+        return response;
     }
-
-    private boolean findPath(TreeNode node, int target, StringBuilder path) {
-        if (node == null) {
+    
+    boolean traverse(TreeNode root, int nodeValue, StringBuilder sb) {
+        if(root==null) {
             return false;
         }
-
-        if (node.val == target) {
+        if(root.val==nodeValue) {
             return true;
         }
-
-        // Try left subtree
-        path.append("L");
-        if (findPath(node.left, target, path)) {
+        sb.append('L');
+        if(traverse(root.left, nodeValue, sb)) {
             return true;
         }
-        path.deleteCharAt(path.length() - 1); // Remove last character
-
-        // Try right subtree
-        path.append("R");
-        if (findPath(node.right, target, path)) {
-            return true;
+        if(sb.length()>0) {
+            sb.deleteCharAt(sb.length()-1);
         }
-        path.deleteCharAt(path.length() - 1); // Remove last character
-
+        sb.append('R');
+        if(traverse(root.right, nodeValue, sb)) {
+            return true;        
+        }
+        if(sb.length()>0) {
+            sb.deleteCharAt(sb.length()-1);
+        }
         return false;
     }
 }
