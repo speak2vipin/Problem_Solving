@@ -1,5 +1,10 @@
 class Solution {
     public int maximumLength(int[] nums) {
+        // Count odd,even,odd
+        // even, odd, even
+        // odd, odd, odd
+        // even, even, even
+        
         boolean evenFlag = nums[0]%2==0;
         int i = 1;
         int count = 1;
