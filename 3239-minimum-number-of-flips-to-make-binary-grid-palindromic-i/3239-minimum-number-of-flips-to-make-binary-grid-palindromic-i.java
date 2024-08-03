@@ -1,22 +1,20 @@
 class Solution {
     public int minFlips(int[][] grid) {
-        int flipRows = 0;
-        for(int g[] : grid) {
-            flipRows += flipRow(g);
-        }
-        System.out.println("f : " + flipRows);
+        int flipRows = flipRow(grid);
         int flipCols = flipCol(grid);
         return Math.min(flipRows, flipCols);
     }
     
-    int flipRow(int grid[]) {
-        int i = 0 ;
+    int flipRow(int grid[][]) {  
         int count = 0;
-        int n = grid.length-1;
-        while(i<n-i) {
-            if(grid[i]!=grid[n-i])
-                count++;
-            i++;
+        int n = grid[0].length;
+        for(int g[] : grid) {
+            int i = 0 ;
+            while(i<n-i-1) {
+                if(g[i]!=g[n-i-1])
+                    count++;
+                i++;
+            }
         }
         return count;
     }
