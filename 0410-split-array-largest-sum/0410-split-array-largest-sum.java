@@ -1,4 +1,5 @@
 class Solution {
+    // This problem is very similar to Painter partitions problem
     public int splitArray(int[] nums, int k) {
         int ans = -1;
         int max = Integer.MIN_VALUE;
@@ -12,10 +13,6 @@ class Solution {
         while(l<=r) {
             long mid = (r+l)/2;
             boolean isPossible = isValid(nums, mid, k);
-           // boolean oneLessIsPossible = isValid(nums, mid-1, k);
-            //if(isPossible && !oneLessIsPossible) {
-              //  ans = (int)mid;
-            //}
             if(isPossible) {
                 r = mid-1;
             }else {
