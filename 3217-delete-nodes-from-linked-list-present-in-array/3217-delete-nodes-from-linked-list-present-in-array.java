@@ -14,7 +14,6 @@ class Solution {
         for(int num : nums) {
             numbers.add(num);
         }
-        
         while(head!=null && numbers.contains(head.val)) {
             head = head.next;
         }
