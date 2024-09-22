@@ -6,6 +6,7 @@ class Solution {
         for(int i=0; i<n; i++) {
             int curr = s.charAt(i)-'a';
             int best = 0;
+            // Checking calculated values for curr - k, take care of elements beyond 25th index
             for(int prev = Math.max(0, curr-k); prev<Math.min(26, curr+k+1); prev++) {
                 best = Math.max(best, dp[prev]);
             }
